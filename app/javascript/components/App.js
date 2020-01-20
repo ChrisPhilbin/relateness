@@ -12,12 +12,12 @@ class App extends React.Component {
   render () {
     return (
     	<Provider store={store}>
-	      <ReactRouter>
+	      <BrowserRouter>
 	      	<Switch>
 	      		<Route exact path="/" render{ () => ("Home!")} />
 	      		<Route exact path="/hello" render{ () => <HelloWorld greeting="Friend"/> } />
 	      	</Switch
-	      </ReactRouter>
+	      </BrowserRouter>
 	    </Provider>
     );
   }
