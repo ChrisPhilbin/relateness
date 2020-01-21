@@ -18,14 +18,14 @@ class HelloWorld extends React.Component {
       <React.Fragment>
         Greeting: {this.props.greeting}
 
-        <button className="getThignsBtn" onClick={() => this.props.getThings()}>getThings</button>
+        <button className="getThingsBtn" onClick={() => this.props.getThings()}>getThings</button>
       </React.Fragment>
     );
   }
 }
 
 const structuredSelector = createStructuredSelector({
-	things: state => state.things
+	things: state => state.things,
 })
 
 const mapDispatchToProps = { getThings }
