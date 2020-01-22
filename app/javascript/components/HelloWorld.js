@@ -16,7 +16,7 @@ class HelloWorld extends React.Component {
   render () {
   	const { things } = this.props
   	const thingsList = things.map((thing) => {
-  		return <li>{thing.name} {thing.guid}</li>
+  		return <li key={thing.guid}>{thing.name} {thing.guid}</li>
   	})
 
     return (
