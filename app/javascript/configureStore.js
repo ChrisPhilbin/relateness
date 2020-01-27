@@ -3,7 +3,12 @@ import thunk from 'redux-thunk'
 
 
 const initialState = {
-
+	things: [
+		{
+			name: "test",
+			guid: "123"
+		}
+	]
 }
 
 function rootReducer(state, action) {
