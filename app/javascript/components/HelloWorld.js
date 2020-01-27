@@ -17,6 +17,13 @@ function getThings() {
 	}
 }
 
+export function getThingsSuccess(json) {
+	return {
+		type: GET_THINGS_SUCCESS,
+		json
+	}
+}
+
 class HelloWorld extends React.Component {
   render () {
   	const { things } = this.props
