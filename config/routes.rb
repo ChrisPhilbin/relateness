@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 	namespace :v1, defaults: { format: 'json' } do
 		get 'things', to: 'things#index'
+		resources :employees
 	end
 
 	get '*page', to: 'static#index', constraints: ->(req) do
