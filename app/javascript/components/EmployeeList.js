@@ -9,10 +9,10 @@ class EmployeeList extends Component {
 
 	componentDidMount() {
 		fetch('/v1/employees')
-		.then(posts => posts.json())
-		.then(posts => {
+		.then(employees => employees.json())
+		.then(employees => {
 			this.setState({
-				posts: posts
+				employees: employees
 			})
 		})
 	}
