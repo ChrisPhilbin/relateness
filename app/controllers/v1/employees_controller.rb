@@ -7,5 +7,11 @@ class V1::EmployeesController < ApplicationController
 			render json: {}, status: 401
 		end
 	end
+
+	private
+
+	def employee_params
+		params.require(:employee).permit(:full_name)
+	end
 	
 end
