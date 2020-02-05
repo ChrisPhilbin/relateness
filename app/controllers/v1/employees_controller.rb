@@ -23,7 +23,7 @@ class V1::EmployeesController < ApplicationController
 	private
 
 	def employee_params
-		params.require(:employee).permit(:full_name)
+		params.require(:employee).permit(:fullname)
 	end
 	
 end
