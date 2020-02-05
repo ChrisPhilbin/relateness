@@ -10,7 +10,7 @@ class EmployeeList extends Component {
 	componentDidMount() {
 		fetch('/v1/employees')
 		.then(posts => posts.json())
-		then(posts => {
+		.then(posts => {
 			this.setState({
 				posts: posts
 			})
@@ -18,9 +18,9 @@ class EmployeeList extends Component {
 	}
 
 	renderEmployees = () => {
-		return this.state.posts.map(post => {
+		return this.state.posts.map(employee => {
 			return (
-				<div key={employee.id})>
+				<div key={employee.id}>
 					{employee.fullname}
 				</div>
 			)
