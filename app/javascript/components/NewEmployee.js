@@ -14,6 +14,28 @@ class NewEmployee extends Component {
 		})
 	}
 
+	handleSubmit = e => {
+		e.preventDefault();
+		let data = {employee: this.state}
+		let token = document.querySelector('meta[name="csrf-token"]').content
+		fetch('/v1/employees', {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+				'X-Requested-With': "XMLHttpRequest",
+				'X-CSRF-Token': token
+			},
+			redirect: "error",
+			body: JSON.stringify(data)
+		})
+		.then(resp => {
+			resp.json()
+		})
+		.then(post => {
+			this.props.history.push('/')
+		})
+	}
+
 	render() {
 		return (
 			<form>
