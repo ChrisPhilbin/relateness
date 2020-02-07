@@ -11,7 +11,7 @@ class V1::EmployeesController < ApplicationController
 	def create
 		if user_signed_in?
 			if employee = current_user.employees.create(employee_params)
-				render json: employee, status :created
+				render json: employee, status: :created
 			else
 				render json: employee.errors, status: 400
 			end

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 class EmployeeList extends Component {
 
 	state = {
-		posts: []
+		employees: []
 	}
 
 	componentDidMount() {
@@ -18,7 +18,7 @@ class EmployeeList extends Component {
 	}
 
 	renderEmployees = () => {
-		return this.state.posts.map(employee => {
+		return this.state.employees.map(employee => {
 			return (
 				<div key={employee.id}>
 					{employee.fullname}
