@@ -14,7 +14,7 @@ class NewEmployee extends Component {
 		})
 	}
 
-	handleSubmit = e => {
+	handleSubmit = (e) => {
 		e.preventDefault();
 		let data = {employee: this.state}
 		let token = document.querySelector('meta[name="csrf-token"]').content
@@ -38,7 +38,7 @@ class NewEmployee extends Component {
 
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.handleSubmit.bind(this)}>
 				<p>
 					<label for="fullname">Employee full name:</label>
 					<input type="text" name="fullname" onChange={this.handleChange} />

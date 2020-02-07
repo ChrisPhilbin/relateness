@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { Provider } from 'react-redux'
 import EmployeeList from './EmployeeList'
+import NewEmployee from './NewEmployee'
 // import HelloWorld from './HelloWorld'
 import configureStore from '../configureStore'
 
@@ -16,6 +17,7 @@ class App extends React.Component {
 	      <BrowserRouter>
 	      	<Switch>
 	      		<Route exact path="/" render={ () => <EmployeeList /> } />
+	      		<Route exact path="/employees/new" render={ () => <NewEmployee /> } />
 	      	</Switch>
 	      </BrowserRouter>
 	    </Provider>
