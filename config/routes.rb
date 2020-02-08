@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :interests
   resources :employees
   devise_for :users
 	namespace :v1, defaults: { format: 'json' } do
