@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_144250) do
+ActiveRecord::Schema.define(version: 2020_02_10_130022) do
+
+  create_table "employee_interest", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_interest_on_employee_id"
+    t.index ["interest_id"], name: "index_employee_interest_on_interest_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "fullname"
@@ -21,10 +30,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_144250) do
   end
 
   create_table "interests", force: :cascade do |t|
-    t.integer "employee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_interests_on_employee_id"
+    t.string "interest"
   end
 
   create_table "users", force: :cascade do |t|
