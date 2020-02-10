@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_130022) do
+ActiveRecord::Schema.define(version: 2020_02_10_160900) do
 
-  create_table "employee_interest", force: :cascade do |t|
+  create_table "employee_interests", force: :cascade do |t|
     t.integer "employee_id"
     t.integer "interest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_employee_interest_on_employee_id"
-    t.index ["interest_id"], name: "index_employee_interest_on_interest_id"
+    t.index ["employee_id"], name: "index_employee_interests_on_employee_id"
+    t.index ["interest_id"], name: "index_employee_interests_on_interest_id"
   end
 
   create_table "employees", force: :cascade do |t|
