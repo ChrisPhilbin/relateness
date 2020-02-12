@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :interests
-  resources :employees
+  # resources :interests
+  # resources :employees
   devise_for :users
 	namespace :v1, defaults: { format: 'json' } do
 		get 'things', to: 'things#index'
 		resources :employees
+		resources :interests
 	end
 
 	get '*page', to: 'static#index', constraints: ->(req) do
