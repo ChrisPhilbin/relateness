@@ -18,10 +18,10 @@ class InterestList extends Component {
 	}
 
 	renderInterests = () => {
-		return this.state.interests.map(interests => {
+		return this.state.interests.map(interest => {
 			return (
-				<div key={interests.id}>
-					{interests.fullname}
+				<div key={interest.id}>
+					{interest.interest}
 				</div>
 			)
 		})
@@ -39,6 +39,4 @@ class InterestList extends Component {
 
 }
 
-export default EmployeeList
-
-end
+export default InterestList
