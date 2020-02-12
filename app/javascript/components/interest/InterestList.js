@@ -7,5 +7,15 @@ class InterestList extends Component {
 		interests: []
 	}
 
+	componentDidMount() {
+		fetch('/v1/interests')
+		.then(interests => interests.json())
+		.then(interests => {
+			this.setState({
+				interests: interests
+			})
+		})
+	}
+
 
 end
