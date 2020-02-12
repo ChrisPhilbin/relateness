@@ -17,5 +17,28 @@ class InterestList extends Component {
 		})
 	}
 
+	renderInterests = () => {
+		return this.state.interests.map(interests => {
+			return (
+				<div key={interests.id}>
+					{interests.fullname}
+				</div>
+			)
+		})
+	}
+
+	render () {
+		return (
+			<div>
+				Listing all interests
+				{this.renderInterests()}
+				<Link to="/interests/new">Add a new interest</Link>
+			</div>
+			)
+	}
+
+}
+
+export default EmployeeList
 
 end
