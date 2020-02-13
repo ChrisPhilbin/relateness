@@ -32,7 +32,7 @@ class EmployeeList extends Component {
 			<div>
 				Listing all employees
 				{this.renderEmployees()}
-				<Link to="/employees/new">Add a new employee</Link>
+				[ <Link to="/employees/new">Add a new employee</Link> | <Link to="/interests/new">Add a new interest</Link> ]
 			</div>
 			)
 	}

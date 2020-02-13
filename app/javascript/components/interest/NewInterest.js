@@ -49,3 +49,5 @@ class NewInterest extends Component {
 	}
 
 }
+
+export default NewInterest
