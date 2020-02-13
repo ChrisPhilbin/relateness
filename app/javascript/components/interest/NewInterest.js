@@ -34,4 +34,18 @@ class NewInterest extends Component {
 			this.props.history.push('/')
 		})
 	}
+
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit.bind(this)}>
+				<p>
+					<label for="interest">Add new interest:</label>
+					<input type="text" name="interest" onChange={this.handleChange} />
+				</p>
+
+				<input type="submit" value="Add interest" />
+			</form>
+		)
+	}
+
 }
