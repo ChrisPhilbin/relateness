@@ -2,8 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { Provider } from 'react-redux'
-import EmployeeList from './EmployeeList'
-import NewEmployee from './NewEmployee'
+import EmployeeList from './employee/EmployeeList'
+import NewEmployee from './employee/NewEmployee'
 import InterestList from './interest/InterestList'
 import NewInterest from './interest/NewInterest'
 import configureStore from '../configureStore'
