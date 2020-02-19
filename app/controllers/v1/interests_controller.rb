@@ -8,6 +8,16 @@ class V1::InterestsController < ApplicationController
 		end
 	end
 
+	def employees_interests
+		if user_signed_in?
+			employee = Employee.find(params[:id])
+			interests = employee.interests
+			render json: interests
+		else
+			render json: {}, status: 401
+		end
+	end
+
 	def create
 		if user_signed_in?
 			if interest = Interest.create(interest_params)
