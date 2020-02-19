@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 	namespace :v1, defaults: { format: 'json' } do
 		get 'things', to: 'things#index'
 		resources :employees
-		resources :interests
+		resources :interests, only: [:index, :create] do
+			resources :employees_interests, only: [:index]
+		end
 	end
 
 	get '*page', to: 'static#index', constraints: ->(req) do
