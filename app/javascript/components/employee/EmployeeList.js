@@ -21,7 +21,7 @@ class EmployeeList extends Component {
 		return this.state.employees.map(employee => {
 			return (
 				<div key={employee.id}>
-					<a href={'/employees/' + employee.id}>{employee.fullname}</a>
+					<Link to={'/employees/' + employee.id}>{employee.fullname}</Link>
 				</div>
 			)
 		})
