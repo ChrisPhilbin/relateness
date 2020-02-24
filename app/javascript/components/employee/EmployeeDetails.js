@@ -20,4 +20,23 @@ class EmployeeDetails extends Component {
 		})
 	}
 
+	renderEmployee = () => {
+		return(
+			<div>
+				{this.state.employee.id}<br />
+				{this.state.employee.fullname}
+			</div>
+		)
+	}
+
+	render() {
+		return(
+			<div>
+				{this.renderEmployee()}
+			</div>
+		)
+	}
+
 }
+
+export default EmployeeDetails
