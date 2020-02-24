@@ -20,6 +20,10 @@ class V1::EmployeesController < ApplicationController
 		end	
 	end
 
+	def show
+		employee = Employee.find([:id])
+	end
+
 	private
 
 	def employee_params

@@ -4,27 +4,24 @@ import { Link } from 'react-router-dom'
 class EmployeeDetails extends Component {
 
 	state = {
-		employee: {}
+		employee: null
 	}
 
 	componentDidMount() {
 
-		const { id } = this.props.match.id
+		const { id } = this.props.match.params
 
 		fetch('/v1/employees/${id}')
 		.then(employee => employee.json())
-		.then(employee => {
-			this.setState({
-				employee: { employee }
-			})
+		.then((employee) => {
+			this.setState(() => ({ employee }))
 		})
 	}
 
 	renderEmployee = () => {
 		return(
 			<div>
-				{this.state.employee.id}<br />
-				{this.state.employee.fullname}
+				{this.state.employee}<br />
 			</div>
 		)
 	}
