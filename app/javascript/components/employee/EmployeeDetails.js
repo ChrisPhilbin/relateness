@@ -7,4 +7,14 @@ class EmployeeDetails extends Component {
 		employee: {}
 	}
 
+	componentDidMount() {
+		fetch('/v1/employees/${handle}')
+		.then(employee => employee.json())
+		.then(employee => {
+			this.setState({
+				employee: employee
+			})
+		})
+	}
+
 }
