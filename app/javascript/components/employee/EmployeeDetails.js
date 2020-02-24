@@ -8,11 +8,14 @@ class EmployeeDetails extends Component {
 	}
 
 	componentDidMount() {
-		fetch('/v1/employees/${handle}')
+
+		const { id } = this.props.match.id
+
+		fetch('/v1/employees/${id}')
 		.then(employee => employee.json())
 		.then(employee => {
 			this.setState({
-				employee: employee
+				employee: { employee }
 			})
 		})
 	}
