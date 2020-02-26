@@ -21,7 +21,14 @@ class V1::EmployeesController < ApplicationController
 	end
 
 	def show
-		employee = Employee.find([:id])
+		if user_signed_in?
+			if employee = Employee.find(params[:id])
+				binding.pry
+				render json: employee
+			else
+				render json: employee.error, status: 400
+			end
+		end
 	end
 
 	private
