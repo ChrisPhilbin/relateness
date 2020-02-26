@@ -11,10 +11,10 @@ class EmployeeDetails extends Component {
 
 		const { id } = this.props.match.params
 
-		fetch('/v1/employees/${id}')
-		.then(employee => employee.json())
-		.then((employee) => {
-			this.setState(() => ({ employee }))
+		fetch('/v1/employees/' + id)
+		.then(employee_details => employee_details.json())
+		.then((employee_details) => {
+			this.setState(() => ( { employee: employee_details }))
 		})
 	}
 
