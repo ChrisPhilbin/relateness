@@ -21,7 +21,7 @@ class V1::EmployeesController < ApplicationController
 	end
 
 	def show
-			render json: Employee.find(params[:id])
+		render json: Employee.find(params[:id])
 	end
 
 	private
