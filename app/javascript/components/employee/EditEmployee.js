@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class EditEmployee extends Component {
 
 	state = {
-		employee: null
+		fullname: ''
 	}
 
 	componentDidMount() {
@@ -17,8 +17,18 @@ class EditEmployee extends Component {
 		})
 	}
 
-	onChange(e) {
+	onChange = (e) => {
+		this.setState({[e.target.name]: e.target.value})
+	}
 
+	onSubmit = (e) => {
+		e.preventDefault()
+	}
+
+	render() {
+		<div>
+
+		</div>
 	}
 
 }
