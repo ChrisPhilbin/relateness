@@ -21,14 +21,23 @@ class EditEmployee extends Component {
 		this.setState({[e.target.name]: e.target.value})
 	}
 
-	onSubmit = (e) => {
+	handleSubmit = (e) => {
 		e.preventDefault()
 	}
 
 	render() {
-		<div>
+		return(
+			<div>
+				<form onSubmit={this.handleSubmit.bind(this)}>
+					<p>
+						<label for="fullname">Employee full name:</label>
+						<input type="text" name="fullname" onChange={this.handleChange} />
+					</p>
 
-		</div>
+					<input type="submit" value="Update" />
+				</form>
+			</div>
+		)
 	}
 
 }
