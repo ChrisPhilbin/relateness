@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class EditEmployee extends Component {
 
 	state = {
-		employee: null
+		employee: {}
 	}
 
 	componentDidMount() {
@@ -31,7 +31,7 @@ class EditEmployee extends Component {
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<p>
 						<label for="fullname">Employee full name:</label>
-						<input type="text" name="fullname" onChange={this.handleChange} />
+						<input type="text" name="fullname" onChange={this.handleChange} value={this.state.employee.fullname}/>
 					</p>
 
 					<input type="submit" value="Update" />

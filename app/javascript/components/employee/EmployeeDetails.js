@@ -21,7 +21,7 @@ class EmployeeDetails extends Component {
 	renderEmployee = () => {
 		return(
 			<div>
-				{this.state.employee.fullname}<br />
+				{this.state.employee.fullname} <Link to={'/employees/' + this.state.employee.id + '/edit'}>Edit</Link><br />
 			</div>
 		)
 	}

@@ -8,6 +8,7 @@ import MainPage from './MainPage'
 import NewEmployee from './employee/NewEmployee'
 import NewInterest from './interest/NewInterest'
 import EmployeeDetails from './employee/EmployeeDetails'
+import EditEmployee from './employee/EditEmployee'
 import configureStore from '../configureStore'
 
 const store = configureStore()
@@ -26,6 +27,7 @@ class App extends React.Component {
 		      		<Route exact path="/interests/new" render={ () => <NewInterest /> } />
 		      		<Route exact path="/employees/new" render={ () => <NewEmployee /> } />
 		      		<Route exact path="/employees/:id" component={EmployeeDetails} />
+		      		<Route exact path="/employees/:id/edit" component={EditEmployee} />
 		      	</Switch>
 		      </BrowserRouter>
 		    </Provider>
