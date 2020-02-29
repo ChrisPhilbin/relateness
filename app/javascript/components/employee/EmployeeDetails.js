@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 class EmployeeDetails extends Component {
 
 	state = {
-		employee: null
+		employee: {}
 	}
 
 	componentDidMount() {
@@ -21,7 +21,7 @@ class EmployeeDetails extends Component {
 	renderEmployee = () => {
 		return(
 			<div>
-				{this.state.employee}<br />
+				{this.state.employee.fullname}<br />
 			</div>
 		)
 	}

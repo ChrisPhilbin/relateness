@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class EditEmployee extends Component {
 
 	state = {
-		fullname: ''
+		employee: null
 	}
 
 	componentDidMount() {
@@ -17,7 +17,7 @@ class EditEmployee extends Component {
 		})
 	}
 
-	onChange = (e) => {
+	handleChange = (e) => {
 		this.setState({[e.target.name]: e.target.value})
 	}
 
