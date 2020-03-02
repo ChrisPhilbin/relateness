@@ -22,16 +22,35 @@ class EditEmployee extends Component {
 	}
 
 	handleSubmit = (e) => {
-		e.preventDefault()
+		e.preventDefault();
+		let data = {employee: this.state}
+		let token = document.querySelector('meta[name="csrf-token"]').content
+		fetch('/v1/employees/' + this.props.match.params, {
+			method: 'PATCH',
+			headers: {
+				"Content-Type": "application/json",
+				'X-Requested-With': "XMLHttpRequest",
+				'X-CSRF-Token': token
+			},
+			redirect: "error",
+			body: JSON.stringify(data)
+		})
+		.then(resp => {
+			resp.json()
+		})
+		.then(post => {
+			this.props.history.push('/')
+		})
 	}
 
 	render() {
 		return(
 			<div>
+				<p><h3>Editing details for {this.state.employee.fullname}</h3></p>
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<p>
 						<label for="fullname">Employee full name:</label>
-						<input type="text" name="fullname" onChange={this.handleChange} value={this.state.employee.fullname}/>
+						<input type="text" name="fullname" onChange={this.handleChange} placeholder={this.state.employee.fullname}/>
 					</p>
 
 					<input type="submit" value="Update" />
