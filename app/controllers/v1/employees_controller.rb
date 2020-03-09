@@ -24,6 +24,12 @@ class V1::EmployeesController < ApplicationController
 		render json: Employee.find(params[:id])
 	end
 
+	def update
+		employee = Employee.find(params[:id])
+		employee.update_attributes(employee_params)
+		render json: employee
+	end
+
 	private
 
 	def employee_params
