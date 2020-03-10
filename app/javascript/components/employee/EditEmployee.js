@@ -26,7 +26,7 @@ class EditEmployee extends Component {
 		let data = {employee: this.state}
 		let token = document.querySelector('meta[name="csrf-token"]').content
 		fetch('/v1/employees/' + this.props.match.params, {
-			method: 'PATCH',
+			method: 'PUT',
 			headers: {
 				"Content-Type": "application/json",
 				'X-Requested-With': "XMLHttpRequest",
