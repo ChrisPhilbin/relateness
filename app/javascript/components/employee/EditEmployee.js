@@ -18,14 +18,18 @@ class EditEmployee extends Component {
 	}
 
 	handleChange = (e) => {
-		this.setState({[e.target.name]: e.target.value})
+		this.setState({...this.state.employee, [e.target.name]: e.target.value})
+		// this.setState({employee: { [...e.target.name]: e.target.value }})
+		console.log(this.state)
 	}
 
 	handleSubmit = (e) => {
+		const { id } = this.props.match.params
 		e.preventDefault();
-		let data = {employee: this.state}
+		let data = {employee: this.state.employee.fullname}
+		// console.log(data);
 		let token = document.querySelector('meta[name="csrf-token"]').content
-		fetch('/v1/employees/' + this.props.match.params, {
+		fetch('/v1/employees/' + id, {
 			method: 'PUT',
 			headers: {
 				"Content-Type": "application/json",
