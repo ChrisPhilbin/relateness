@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_160900) do
+ActiveRecord::Schema.define(version: 2020_03_16_114843) do
 
   create_table "employee_interests", force: :cascade do |t|
     t.integer "employee_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_160900) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 

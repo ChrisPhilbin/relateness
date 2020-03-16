@@ -30,9 +30,8 @@ class EmployeeList extends Component {
 	render () {
 		return (
 			<div>
-				Listing all employees
+				Your team members - <Link to="/employees/new">Add a new team member</Link>
 				{this.renderEmployees()}
-				[ <Link to="/employees/new">Add a new employee</Link> | <Link to="/interests/new">Add a new interest</Link> ]
 			</div>
 			)
 	}

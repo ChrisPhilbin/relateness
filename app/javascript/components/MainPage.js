@@ -9,7 +9,6 @@ class MainPage extends Component {
 		return (
 			<div>
 				<EmployeeList />
-				<InterestList />
 			</div>
 		)
 	}
