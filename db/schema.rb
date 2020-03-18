@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_114843) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
+    t.date "hiredate"
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
