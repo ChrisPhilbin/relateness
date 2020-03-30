@@ -1,4 +1,9 @@
-class FlashMessages extends React.Component {
+import React, { Component } from 'react'
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group'
+import Alert from './Alert'
+
+class FlashMessages extends Component {
 
   constructor(props) {
     super(props);
@@ -25,16 +30,18 @@ class FlashMessages extends React.Component {
     );
     
     return(
-      <React.addons.CSSTransitionGroup
+      <CSSTransitionGroup
         transitionName='alerts'
         transitionEnter={false}
         transitionLeaveTimeout={500}>
         { alerts }
-      </React.addons.CSSTransitionGroup>
+      </CSSTransitionGroup>
     );
   }
 }
 
-FlashMessages.propTypes = {
-  messages: React.PropTypes.array.isRequired
-};
+// FlashMessages.propTypes = {
+//   messages: React.PropTypes.array.isRequired
+// };
+
+export default FlashMessages

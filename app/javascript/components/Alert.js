@@ -1,4 +1,6 @@
-class Alert extends React.Component {
+import React, { Component } from 'react'
+
+class Alert extends Component {
 
   componentDidMount() {
     this.timer = setTimeout(
@@ -37,12 +39,14 @@ class Alert extends React.Component {
   }
 }
 
-Alert.propTypes = {
-  onClose: React.PropTypes.func,
-  timeout: React.PropTypes.number,
-  message: React.PropTypes.object.isRequired
-};
+// Alert.propTypes = {
+//   onClose: React.PropTypes.func,
+//   timeout: React.PropTypes.number,
+//   message: React.PropTypes.object.isRequired
+// };
 
 Alert.defaultProps = {
   timeout: 3000
 };
+
+export default Alert
