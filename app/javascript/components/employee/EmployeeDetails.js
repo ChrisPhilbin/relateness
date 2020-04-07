@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import ShowInterest from './interest/ShowInterest'
+// import ShowInterest from './interest/ShowInterest'
 
 class EmployeeDetails extends Component {
 
 	state = {
 		employee: {},
-		interests: []
+		interests: {}
 	}
 
 	componentDidMount() {
@@ -19,11 +19,14 @@ class EmployeeDetails extends Component {
 			this.setState(() => ( { employee: employee_details }))
 		})
 
-		fetch('/v1/employees/' + id + 'interests')
+		fetch('/v1/employees/' + id + '/interests')
 		.then(employee_interests => employee_interests.json())
 		.then((employee_interests) => {
-			this.setState(() => ( { interests: employee_interests }))
-		})		
+			// console.log(employee_interests[0])
+			this.setState(() => ({ interests: {employee_interests} }))
+		console.log(this.state.interests)
+		})
+
 	}
 
 	render() {
