@@ -6,7 +6,7 @@ class EmployeeDetails extends Component {
 
 	state = {
 		employee: {},
-		interests: {}
+		interests: []
 	}
 
 	componentDidMount() {
@@ -23,7 +23,7 @@ class EmployeeDetails extends Component {
 		.then(employee_interests => employee_interests.json())
 		.then((employee_interests) => {
 			// console.log(employee_interests[0])
-			this.setState(() => ({ interests: {employee_interests} }))
+			this.setState(() => ({ interests: employee_interests }))
 		console.log(this.state.interests)
 		})
 
@@ -32,7 +32,10 @@ class EmployeeDetails extends Component {
 	render() {
 		return(
 			<div>
-				{this.state.employee.fullname} <Link to={'/employees/' + this.state.employee.id + '/edit'}>Edit</Link><br />
+				{this.state.employee.fullname} <Link to={'/employees/' + this.state.employee.id + '/edit'}>Edit</Link><br />			
+				{this.state.interests.map((interest) => {
+					return <div id={interest.id}>{interest.interest}<br /></div>
+				})}	
 			</div>
 		)
 	}
