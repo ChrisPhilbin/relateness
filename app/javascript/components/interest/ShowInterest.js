@@ -2,9 +2,9 @@ import React from 'react'
 
 const ShowInterest = () => (
 
-	<div>
-		{interest_name} - [remove]<br />
-	</div>
+	{this.props.interests.map((interest) => {
+		return <div id={interest.id}>{interest.interest} - [remove]<br /></div>
+	})}	
 
 	)
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-// import ShowInterest from './interest/ShowInterest'
+import ShowInterest from './interest/ShowInterest'
 
 class EmployeeDetails extends Component {
 
@@ -24,7 +24,6 @@ class EmployeeDetails extends Component {
 		.then((employee_interests) => {
 			// console.log(employee_interests[0])
 			this.setState(() => ({ interests: employee_interests }))
-		console.log(this.state.interests)
 		})
 
 	}
@@ -32,10 +31,8 @@ class EmployeeDetails extends Component {
 	render() {
 		return(
 			<div>
-				{this.state.employee.fullname} <Link to={'/employees/' + this.state.employee.id + '/edit'}>Edit</Link><br />			
-				{this.state.interests.map((interest) => {
-					return <div id={interest.id}>{interest.interest}<br /></div>
-				})}	
+				{this.state.employee.fullname} <Link to={'/employees/' + this.state.employee.id + '/edit'}>Edit</Link><br />
+				<ShowInterest interests={this.state.interests} />			
 			</div>
 		)
 	}
