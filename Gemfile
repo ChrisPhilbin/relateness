@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'react-rails'
 gem 'devise'
 gem 'pry'
+gem 'open-uri'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
