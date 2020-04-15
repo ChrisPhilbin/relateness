@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 	namespace :v1, defaults: { format: :json } do
 		get 'employees/:id/interests', to: 'interests#employees_interests'
+		get 'employees/:id/interests/newsfeed', to: 'interests#newsfeed'
 		resources :employees
 		resources :interests
 	end

@@ -31,7 +31,7 @@ class V1::InterestsController < ApplicationController
 		end	
 	end
 
-	def show_interest_news
+	def newsfeed
 		if user_signed_in?
 			employee = Employee.find(params[:id])
 			interests = employee.interests
