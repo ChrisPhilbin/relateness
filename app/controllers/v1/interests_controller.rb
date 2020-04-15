@@ -1,3 +1,4 @@
+require 'pry'
 class V1::InterestsController < ApplicationController
 
 	def index
@@ -28,6 +29,15 @@ class V1::InterestsController < ApplicationController
 		else
 			render json: {}, status: 401
 		end	
+	end
+
+	def show_interest_news
+		if user_signed_in?
+			employee = Employee.find(params[:id])
+			interests = employee.interests
+			news = Interest.update_all_employee_interests(interests)
+			render json: news
+		end
 	end
 
 	private

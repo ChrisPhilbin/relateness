@@ -6,7 +6,8 @@ class Interest < ApplicationRecord
 	has_many :employee_interest
 	has_many :employees, :through => :employee_interest
 
-	def get_news(interest)
+	def update_single__employee_interest(interest)
+		#get news items back for one single interest
 
 		url = "http://newsapi.org/v2/everything?"\
       	"q=#{interest}&"\
@@ -21,7 +22,9 @@ class Interest < ApplicationRecord
 		return response_body
 	end
 
-	def self.get_all_news(interests)
+	def self.update_all_employee_interests(interests)
+		#accepts array of interest objects and returns relevent news for each interest
+
 		arr = []
 
 		interests.each do |i|
@@ -34,6 +37,7 @@ class Interest < ApplicationRecord
 	      	"q=#{i}&"\
 	      	"from=#{Time.now.strftime("%Y-%m-%d")}&"\
 	      	"sortBy=popularity&"\
+	      	"pageSize=3&"\
 	      	"apiKey=1da9ec228ba04ed1b0db42d2e298d15c"
 
 			req = open(url)
