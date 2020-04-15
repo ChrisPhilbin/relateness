@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'pry'
 
 class Interest < ApplicationRecord
 
@@ -20,10 +21,8 @@ class Interest < ApplicationRecord
 		return response_body
 	end
 
-	def get_all_news(interests)
+	def self.get_all_news(interests)
 		arr = []
-
-		binding.pry
 
 		interests.each do |i|
 			arr << i.interest
@@ -32,7 +31,7 @@ class Interest < ApplicationRecord
 		news = []
 		arr.each do |i|
 			url = "http://newsapi.org/v2/everything?"\
-	      	"q=#{interest}&"\
+	      	"q=#{i}&"\
 	      	"from=#{Time.now.strftime("%Y-%m-%d")}&"\
 	      	"sortBy=popularity&"\
 	      	"apiKey=1da9ec228ba04ed1b0db42d2e298d15c"
