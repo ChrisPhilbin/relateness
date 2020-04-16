@@ -17,14 +17,12 @@
 
 import React from 'react'
 
-const ShowInterest = (props) => {
-	return(
+const ShowInterest = (props) => (
 		<div>
 			{props.interests.map((interest) => {
-			<div id={interest.id}>{interest.interest} - [remove]<br /></div>
+			return <div id={interest.id}>{interest.interest} - [remove]<br /></div>
 			})}
 		</div>
-	)
-}
+)
 
 export default ShowInterest
