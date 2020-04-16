@@ -23,7 +23,6 @@ class App extends React.Component {
 		      	<TopNav />
 		      	<Switch>
 		      		<Route exact path="/" render={ () => <MainPage /> } />
-		      		<Route exact path="/interests" render={ () => <InterestList /> } />
 		      		<Route exact path="/interests/new" render={ () => <NewInterest /> } />
 		      		<Route exact path="/employees/new" render={ () => <NewEmployee /> } />
 		      		<Route exact path="/employees/:id" component={EmployeeDetails} />

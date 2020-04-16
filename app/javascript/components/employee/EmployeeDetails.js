@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import ShowInterest from './interest/ShowInterest'
+import ShowInterest from '../interest/ShowInterest'
 
 class EmployeeDetails extends Component {
 
