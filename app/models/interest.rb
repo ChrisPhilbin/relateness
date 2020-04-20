@@ -24,6 +24,7 @@ class Interest < ApplicationRecord
 
 	def self.update_all_employee_interests(interests)
 		#accepts array of interest objects and returns relevent news for each interest
+		# binding.pry
 
 		arr = []
 
@@ -31,22 +32,24 @@ class Interest < ApplicationRecord
 			arr << i.interest
 		end
 
-		news = []
+		news = {}
 		arr.each do |i|
 			url = "http://newsapi.org/v2/everything?"\
 	      	"q=#{i}&"\
 	      	"from=#{Time.now.strftime("%Y-%m-%d")}&"\
 	      	"sortBy=popularity&"\
 	      	"pageSize=3&"\
-	      	"apiKey=#{ENV[API_KEY]}"
+	      	"apiKey=#{ENV['API_KEY']}"
 
 			req = open(url)
 
-			response_body = req.read
+			# response_body = req.read
+			response_body = JSON.parse(req.read)
 
-			news << response_body
+			news[:headlines] = response_body
+
 		end
-
+		binding.pry
 		return news
 	end
 
