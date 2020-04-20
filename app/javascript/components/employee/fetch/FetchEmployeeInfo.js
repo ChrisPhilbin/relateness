@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-export const GetEmployeeDetails = (id) => {
+export function GetEmployeeDetails(id) {
   const [employee_details, setData] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export const GetEmployeeDetails = (id) => {
   return employee_details;
 }
 
-export const GetEmployeeInterests = (id) => {
+export function GetEmployeeInterests(id) {
   const [employee_interests, setData] = useState([]);
 
   useEffect(() => {

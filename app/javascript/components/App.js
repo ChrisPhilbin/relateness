@@ -7,7 +7,7 @@ import TopNav from './navigation/TopNav'
 import MainPage from './MainPage'
 import NewEmployee from './employee/NewEmployee'
 import NewInterest from './interest/NewInterest'
-import EmployeeDetails from './employee/EmployeeDetails'
+import ShowEmployee from './employee/ShowEmployee'
 import EditEmployee from './employee/EditEmployee'
 import configureStore from '../configureStore'
 
@@ -25,7 +25,7 @@ class App extends React.Component {
 		      		<Route exact path="/" render={ () => <MainPage /> } />
 		      		<Route exact path="/interests/new" render={ () => <NewInterest /> } />
 		      		<Route exact path="/employees/new" render={ () => <NewEmployee /> } />
-		      		<Route exact path="/employees/:id" component={EmployeeDetails} />
+		      		<Route exact path="/employees/:id" render={ () => <ShowEmployee />} />
 		      		<Route exact path="/employees/:id/edit" component={EditEmployee} />
 		      	</Switch>
 		      </BrowserRouter>
