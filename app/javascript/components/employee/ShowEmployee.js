@@ -1,10 +1,9 @@
 import React from 'react'
 import EmployeeDetails from './EmployeeDetails'
 
-const ShowEmployee = () => (
+const ShowEmployee = (props) => (
 	<div>
-		<EmployeeDetails />
-		}
+		<EmployeeDetails {...props}/>
 	</div>
 )
 export default ShowEmployee

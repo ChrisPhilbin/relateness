@@ -25,7 +25,7 @@ class App extends React.Component {
 		      		<Route exact path="/" render={ () => <MainPage /> } />
 		      		<Route exact path="/interests/new" render={ () => <NewInterest /> } />
 		      		<Route exact path="/employees/new" render={ () => <NewEmployee /> } />
-		      		<Route exact path="/employees/:id" render={ () => <ShowEmployee />} />
+		      		<Route exact path="/employees/:id" component={ShowEmployee} />
 		      		<Route exact path="/employees/:id/edit" component={EditEmployee} />
 		      	</Switch>
 		      </BrowserRouter>

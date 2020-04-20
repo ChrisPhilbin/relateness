@@ -1,49 +1,42 @@
-import React from 'react'
-import {GetEmployeeDetails, GetEmployeeInterests} from './fetch/FetchEmployeeInfo'
-// import ShowInterest from '../interest/ShowInterest'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import ShowInterest from '../interest/ShowInterest'
 
-// class EmployeeDetails extends React.Component {
+class EmployeeDetails extends Component {
 
-	// state = {
-	// 	employee: {},
-	// 	interests: []
-	// }
+	state = {
+		employee: {},
+		interests: []
+	}
 
-	// componentDidMount() {
+	componentDidMount() {
 
-	// 	const { id } = this.props.match.params
+		const { id } = this.props.match.params
 
-	// 	GetEmployeeDetails(id)
+		fetch('/v1/employees/' + id)
+		.then(employee_details => employee_details.json())
+		.then((employee_details) => {
+			this.setState(() => ( { employee: employee_details }))
+		})
 
-	// 	GetEmployeeInterests(id)
+		fetch('/v1/employees/' + id + '/interests')
+		.then(employee_interests => employee_interests.json())
+		.then((employee_interests) => {
+			// console.log(employee_interests[0])
+			this.setState(() => ({ interests: employee_interests }))
+		})
 
-	// 	fetch('/v1/employees/' + id)
-	// 	.then(employee_details => employee_details.json())
-	// 	.then((employee_details) => {
-	// 		this.setState(() => ( { employee: employee_details }))
-	// 	})
+	}
 
-	// 	fetch('/v1/employees/' + id + '/interests')
-	// 	.then(employee_interests => employee_interests.json())
-	// 	.then((employee_interests) => {
-	// 		// console.log(employee_interests[0])
-	// 		this.setState(() => ({ interests: employee_interests }))
-	// 	})
+	render() {
+		return(
+			<div>
+				{this.state.employee.fullname} <Link to={'/employees/' + this.state.employee.id + '/edit'}>Edit</Link><br />
+				<ShowInterest interests={this.state.interests} />			
+			</div>
+		)
+	}
 
-	// }
-const EmployeeDetails = () => (
-
-	const ee = this.props.match.params;
-	const employee_details = GetEmployeeDetails(ee);
-	const employee_interests = GetEmployeeInterests(ee);
-	console.log(employee_details)
-
-	return(
-		<div>
-		{console.log('test')}
-		Hello world!
-		</div>
-	)
-)
+}
 
 export default EmployeeDetails
