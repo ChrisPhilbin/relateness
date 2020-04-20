@@ -13,7 +13,7 @@ class Interest < ApplicationRecord
       	"q=#{interest}&"\
       	"from=#{Time.now.strftime("%Y-%m-%d")}&"\
       	"sortBy=popularity&"\
-      	"apiKey=1da9ec228ba04ed1b0db42d2e298d15c"
+      	"apiKey=#{ENV[API_KEY]}"
 
 		req = open(url)
 
@@ -38,7 +38,7 @@ class Interest < ApplicationRecord
 	      	"from=#{Time.now.strftime("%Y-%m-%d")}&"\
 	      	"sortBy=popularity&"\
 	      	"pageSize=3&"\
-	      	"apiKey=1da9ec228ba04ed1b0db42d2e298d15c"
+	      	"apiKey=#{ENV[API_KEY]}"
 
 			req = open(url)
 
