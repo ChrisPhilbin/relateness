@@ -1,22 +1,26 @@
-import React from 'react'
+import { useState, useEffect } from "react";
 
-export const UpdateAllInterests = (props) => (
+export function UpdateAllInterests(id) {
+  const [data, setData] = useState([]);
 
-	const { id } = this.props.match.params
+  useEffect(() => {
+    fetch('/v1/employees/' + id + "/interests/newsfeed")
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
 
-	fetch('/v1/employees/' + id + "/interests/newsfeed")
-	.then(employee_interests => employee_interests.json())
-	.then((employee_interests) => {
-		this.setState(() => ( { newsfeed: employee_interests }))
-	})
-)
+  return data;
+}
 
-export const UpdateSingleInterest = (interest) => (
+export function UpdateSingleInterests(interest) {
+  const [data, setData] = useState([]);
+  const { id } = this.props.match.params
 
-	fetch('/v1/interests/' + id + "/newsfeed")
-	.then(interest_news => interest_news.json())
-	.then((interest_news) => {
-		this.setState(() => ( { news: interest_news }))
-	})
+  useEffect(() => {
+    fetch('/v1/interests/' + id + "/newsfeed")
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
 
-)
+  return data;
+}

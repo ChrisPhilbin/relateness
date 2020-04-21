@@ -1,9 +1,17 @@
 import React from 'react'
 import EmployeeDetails from './EmployeeDetails'
+import {UpdateAllInterests, UpdateSingleInterest} from '../interest/fetch/FetchInterestInfo'
 
-const ShowEmployee = (props) => (
-	<div>
-		<EmployeeDetails {...props}/>
-	</div>
-)
-export default ShowEmployee
+
+export default function ShowEmployee(props) {
+
+	// const news = UpdateAllInterests(props)
+	// console.log(news);
+
+	return(
+		<div>
+			<EmployeeDetails {...props}/>
+
+		</div>
+	)
+}
