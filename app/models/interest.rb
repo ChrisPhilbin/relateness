@@ -32,7 +32,7 @@ class Interest < ApplicationRecord
 			arr << i.interest
 		end
 
-		news = {}
+		news = []
 		arr.each do |i|
 			url = "http://newsapi.org/v2/everything?"\
 	      	"q=#{i}&"\
@@ -46,11 +46,11 @@ class Interest < ApplicationRecord
 			# response_body = req.read
 			response_body = JSON.parse(req.read)
 
-			news[:headlines] = response_body
+			news << response_body
 
 		end
-		binding.pry
-		return news
+
+		return news.first
 	end
 
 end
