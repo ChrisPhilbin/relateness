@@ -5,8 +5,7 @@ import ShowInterest from '../interest/ShowInterest'
 class EmployeeDetails extends Component {
 
 	state = {
-		employee: {},
-		interests: []
+		employee: {}
 	}
 
 	componentDidMount() {
@@ -19,20 +18,12 @@ class EmployeeDetails extends Component {
 			this.setState(() => ( { employee: employee_details }))
 		})
 
-		fetch('/v1/employees/' + id + '/interests')
-		.then(employee_interests => employee_interests.json())
-		.then((employee_interests) => {
-			// console.log(employee_interests[0])
-			this.setState(() => ({ interests: employee_interests }))
-		})
-
 	}
 
 	render() {
 		return(
 			<div>
 				{this.state.employee.fullname} <Link to={'/employees/' + this.state.employee.id + '/edit'}>Edit</Link><br />
-				<ShowInterest interests={this.state.interests} />			
 			</div>
 		)
 	}
