@@ -33,7 +33,7 @@ class V1::EmployeesController < ApplicationController
 	private
 
 	def employee_params
-		params.require(:employee).permit(:fullname, :id, :used_id, :updated_at, :created_at, :birthday, :hiredate)
+		params.require(:employee).permit(:fullname, :id, :user_id, :updated_at, :created_at, :birthday, :hiredate)
 	end
 	
 end

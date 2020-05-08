@@ -1,17 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import EmployeeList from './employee/EmployeeList'
-import InterestList from './interest/InterestList'
+import React from 'react'
+import ShowAllEmployees from './employees/ShowAllEmployees'
 
-class MainPage extends Component {
+const MainPage = () => (
+	<div>
+		<ShowAllEmployees />
+	</div>
+)
 
-	render() {
-		return (
-			<div>
-				<EmployeeList />
-			</div>
-		)
-	}
-}
 
 export default MainPage
