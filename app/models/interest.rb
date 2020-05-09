@@ -31,6 +31,10 @@ class Interest < ApplicationRecord
 			arr << i.interest
 		end
 
+		if arr.empty?
+			return {}
+		end
+
 		news = []
 		arr.each do |i|
 			url = "http://newsapi.org/v2/everything?"\

@@ -23,6 +23,7 @@ export const DisplayInterestsNewsItems = (props) => {
 
 	return(
 		<div>
+			{console.log(interests_news)}
 			{ JSON.stringify(interests_news) != '{}' && 
 			
 			<Accordion>
