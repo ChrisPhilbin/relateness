@@ -20,6 +20,7 @@ export const getInterestsFailure = () => ({
 
 export const getEmployeesInterestsNews = () => ({
 	type: GET_EMPLOYEES_INTERESTS_NEWS,
+	payload: {},
 })
 
 export const getEmployeesInterestsNewsSuccess = (interest_news) => ({

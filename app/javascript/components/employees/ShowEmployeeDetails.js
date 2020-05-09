@@ -3,7 +3,6 @@ import {useSelector, useDispatch} from 'react-redux'
 
 import {fetchSingleEmployee} from '../actions/employeesActions'
 import {fetchEmployeeInterests} from '../actions/interestsActions'
-import {fetchEmployeeInterestsNews} from '../actions/interestsActions'
 
 import {EmployeeDetails} from './EmployeeDetails'
 import {EmployeeInterest} from '../interests/EmployeeInterest'
@@ -19,14 +18,10 @@ const ShowEmployeeDetails = (props) => {
 	const interests =                useSelector(state => state.interests.interests)
 	const interests_loading =        useSelector(state => state.interests.loading)
 	const interests_hasErrors =      useSelector(state => state.interests.hasErrors)
-	const interests_news =           useSelector(state => state.interests.interests_news.articles)
-	const interests_news_loading =   useSelector(state => state.interests.interests_news_loading)
-	const interests_news_hasErrors = useSelector(state => state.interests.interests_news_hasErrors)
 
 	useEffect(() => {
 		dispatch(fetchSingleEmployee(props.id))
 		dispatch(fetchEmployeeInterests(props.id))
-		dispatch(fetchEmployeeInterestsNews(props.id))
 	}, [])
 
 	const renderEmployeeDetails = () => {
@@ -38,13 +33,7 @@ const ShowEmployeeDetails = (props) => {
 	const renderEmployeeInterests = () => {
 		if (interests_loading)   return <p>Loading employee's interests...</p>
 		if (interests_hasErrors) return <p>Something went wrong loading the employee's interests... please try again...</p>
-		return interests.map( interest => <EmployeeInterest interest={interest} key={interest.id} />)
-	}
-
-	const renderEmployeeInterestsNewsItems = () => {
-		if (interests_news_loading) return <p>Loading interest news...</p>
-		if (interests_news_hasErrors) return <p>Something went wrong loading the news... please try again...</p>
-		if (interests_news.length > 1) return <DisplayInterestsNewsItems interests_news={interests_news} key={interests_news.length} />
+		if (interests) return interests.map( interest => <EmployeeInterest interest={interest} key={interest.id} />)
 	}
 
 	return (
@@ -52,7 +41,7 @@ const ShowEmployeeDetails = (props) => {
 			<div>
 				{renderEmployeeDetails()}
 				{renderEmployeeInterests()}
-				{renderEmployeeInterestsNewsItems()}
+				<DisplayInterestsNewsItems id={props.id} />
 			</div>
 		</section>
 	)

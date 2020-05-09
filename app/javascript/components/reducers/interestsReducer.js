@@ -4,7 +4,8 @@ export const initialState = {
 	interests: [],
 	loading: false,
 	hasErrors: false,
-	interests_news: {"articles":["loading..."]},
+	// interests_news: {"articles":["loading..."]},
+	interests_news: {},
 	interests_news_loading: false,
 	interests_news_hasErrors: false
 }
@@ -18,9 +19,9 @@ export default function interestReducer(state = initialState, action) {
     case actions.GET_INTERESTS_FAILURE:
     	return { ...state, loading: false, hasErrors: true}
     case actions.GET_EMPLOYEES_INTERESTS_NEWS:
-    	return{ ...state, interests_news_loading: true, interests_news_hasErrors: false}
+    	return{ ...state, interests_news: action.payload, interests_news_loading: true, interests_news_hasErrors: false}
     case actions.GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS:
-    	return{...state, interests_news: action.payload, interests_news_loading: false, interests_news_hasErrors: false}
+    	return{ ...state, interests_news: action.payload, interests_news_loading: false, interests_news_hasErrors: false}
     case actions.GET_EMPLOYEES_INTERESTS_NEWS_FAILURE:
     	return{...state, interests_news_loading: false, interests_news_hasErrors: true}
      default:
