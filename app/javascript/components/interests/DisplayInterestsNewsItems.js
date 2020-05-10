@@ -18,6 +18,14 @@ export const DisplayInterestsNewsItems = (props) => {
 	const interests_news_hasErrors = useSelector(state => state.interests.interests_news_hasErrors) 	
 	const interests_news           = useSelector(state => state.interests.interests_news)
 
+	if (interests_news_loading === "true") {
+		return (<p>Loading news... please wait....</p>)
+	}
+
+	if (interests_news_hasErrors === "true") {
+		return (<p>Something went wrong when loading the latest news.... please try again...</p>)
+	}
+
 	return(
 		<div>
 			{ JSON.stringify(interests_news) != '{}' && 
