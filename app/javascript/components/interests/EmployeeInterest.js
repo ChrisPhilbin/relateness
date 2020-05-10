@@ -28,17 +28,24 @@ export const EmployeeInterest = (props) => {
 		return (<p>Something went wrong when trying to load their interests... please try again...</p>)
 	}
 
-	return(
-		<div>
-			{ JSON.stringify(interests) != '[]' && 
-				<>
-				{interests.map( (interest) => (
-					<div key={interest.id}>
-						{interest.interest}
-					</div>
-				))}
-				</>
-			}
-		</div>
-	)
+	if (interests === '[]') {
+		return(<p>It looks like you haven't assigned any interests yet...</p>)
+	}
+
+	if (interests != '[]') {
+		return(
+			<div>
+				{ JSON.stringify(interests) != '[]' && 
+					<>
+					{interests.map( (interest) => (
+						<div key={interest.id}>
+							{interest.interest}
+						</div>
+					))}
+					</>
+				}
+			</div>
+		)
+	}
+
 }
