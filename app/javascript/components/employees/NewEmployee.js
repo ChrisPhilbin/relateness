@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import {Redirect} from 'react-router-dom'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -11,8 +10,6 @@ import {createNewEmployee} from '../actions/employeesActions'
 
 
 class NewEmployee extends React.Component {
-
-	// csrf = document.querySelector('[name=csrf-token]').content
 
 	state = {
 		fullname: '',
@@ -39,7 +36,6 @@ class NewEmployee extends React.Component {
 
 		this.props.createNewEmployee(formData, csrf)
 		this.props.history.push('/')
-		debugger;
 	}
 
 	render(){
