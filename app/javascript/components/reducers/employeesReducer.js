@@ -26,6 +26,8 @@ export default function employeesReducer(state = initialState, action) {
       return { ...state, loading: false, hasErrors: true }
     case actions.EMPLOYEE_CREATED_SUCCESS:
       return {...state, loading: false, hasErrors: false}
+    case actions.EMPLOYEE_UPDATED_SUCCESS:
+      return {...state, loading: false, hasErrors: false}
     default:
       return state
   }

@@ -1,12 +1,13 @@
 //should this be broken up into smaller pieces?
 
-export const GET_EMPLOYEES = 'GET_EMPLOYEES'
-export const GET_EMPLOYEES_SUCCESS = 'GET_EMPLOYEES_SUCCESS'
-export const GET_EMPLOYEES_FAILURE = 'GET_EMPLOYEES_FAILURE'
-export const GET_SINGLE_EMPLOYEE = 'GET_SINGLE_EMPLOYEE'
+export const GET_EMPLOYEES               = 'GET_EMPLOYEES'
+export const GET_EMPLOYEES_SUCCESS       = 'GET_EMPLOYEES_SUCCESS'
+export const GET_EMPLOYEES_FAILURE       = 'GET_EMPLOYEES_FAILURE'
+export const GET_SINGLE_EMPLOYEE         = 'GET_SINGLE_EMPLOYEE'
 export const GET_SINGLE_EMPLOYEE_SUCCESS = 'GET_SINGLE_EMPLOYEE_SUCCESS'
 export const GET_SINGLE_EMPLOYEE_FAILURE = 'GET_SINGLE_EMPLOYEE_FAILURE'
-export const EMPLOYEE_CREATED_SUCCESS = 'EMPLOYEE_CREATED_SUCCESS'
+export const EMPLOYEE_CREATED_SUCCESS    = 'EMPLOYEE_CREATED_SUCCESS'
+export const EMPLOYEE_UPDATED_SUCCESS    = 'EMPLOYEE_UPDATED_SUCCESS'
 
 export const getEmployees = () => ({
   type: GET_EMPLOYEES,
@@ -36,7 +37,12 @@ export const getSingleEmployeeFailure = () => ({
 
 export const employeeCreatedSucess = (employee_details) => ({
 	type: EMPLOYEE_CREATED_SUCCESS,
-	payload: employee_details
+	payload: employee_details,
+})
+
+export const employeeUpdatedSuccess = (employee_details) => ({
+	type: EMPLOYEE_UPDATED_SUCCESS,
+	payload: employee_details,
 })
 
 export function fetchEmployees() {
