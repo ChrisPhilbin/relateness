@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import MainPage from './MainPage'
 import NewEmployee from './employees/NewEmployee'
 import ShowEmployeeDetails from './employees/ShowEmployeeDetails'
+import EditEmployee from './employees/EditEmployee'
 import TopNav from './navigation/TopNav'
 import Container from 'react-bootstrap/Container'
 
@@ -16,6 +17,7 @@ const Index = () => {
 				<Route exact path="/" component={MainPage} />
 				<Route exact path="/employees/new" component={NewEmployee} />
 				<Route exact path="/employees/:id" render={ (props) => <ShowEmployeeDetails id={props.match.params.id} />} />
+				<Route exact path="/employees/:id/edit" render={ (props) => <EditEmployee id={props.match.params.id} />} />
 			</Switch>
 		</Router>
 	</Container>

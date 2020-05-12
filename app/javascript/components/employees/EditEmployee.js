@@ -19,14 +19,14 @@ const EditEmployee = (props) => {
     }, [])
 
     //get initial values from redux store
-    const fullnane  = useSelector(state => state.employees.employee_details.fullname)
+    const fullname  = useSelector(state => state.employees.employee_details.fullname)
     const hiredate  = useSelector(state => state.employees.employee_details.hiredate)
     const birthdate = useSelector(state => state.employees.employee_details.birthdate)
 
     //set local state to the values that were in the redux store/returned by the fetchSingleEmployee function
-    const [fullname, setFullname]   = useState(fullname)
-    const [hiredate, setHiredate]   = useState(hiredate)
-    const [birthdate, setBirthdate] = useState(birthdate)
+    const [local_fullname, setLocalFullname]   = useState(fullname)
+    const [local_hiredate, setLocalHiredate]   = useState(hiredate)
+    const [local_birthdate, setLocalBirthdate] = useState(birthdate)
 
     onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
 		e.preventDefault()
@@ -38,11 +38,17 @@ const EditEmployee = (props) => {
 		debugger;
     }
 
-    onChange = (e) => setFullname({
+    onFullnameChange = (e) => setLocalFullname({
         [e.currentTarget.fullname]: e.currentTarget.value
     })
 
-    }
+    onHireChange = (date) => setLocalHiredate({
+        [date.currentTarget.hiredate]: date.currentTarget.value
+    })
+
+    onBirthdateChange = (date) => setLocalBirthdate({
+        [date.currentTarget.birthdate]: date.currentTarget.value
+    })
     
 	return(
 
@@ -50,17 +56,17 @@ const EditEmployee = (props) => {
             <Form>
                 <Form.Group controlId="formEmployeeFullname">
                     <Form.Label>Employee's fullname:</Form.Label>
-                    <Form.Control type="text" name="fullname" placeholder="Samantha Smith" autoFocus value={this.state.fullname} onChange={this.onChange} />
+                    <Form.Control type="text" name="fullname" placeholder="Samantha Smith" autoFocus value={this.state.fullname} onChange={this.onFullnameChange} />
                 </Form.Group>
 
                 <Form.Group controlId="formEmployeeHiredate">
                     <Form.Label>Hire date: </Form.Label>
-                    <DatePicker selected={this.state.hiredate} onChange={this.onHireChange} />
+                    <DatePicker selected={this.state.hiredate} onChange={this.onLocalHireChange} />
                 </Form.Group>
 
                 <Form.Group controlId="formEmployeeBirthday">
                     <Form.Label>Birthday: </Form.Label>
-                    <DatePicker selected={this.state.birthdate} onChange={this.onBirthdateChange} />
+                    <DatePicker selected={this.state.birthdate} onChange={this.onLocalBirthdateChange} />
                 </Form.Group>
 
                 <Button variant="primary" type="submit" onClick={this.onSubmit}>
