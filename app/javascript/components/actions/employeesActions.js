@@ -53,21 +53,6 @@ export function fetchEmployees() {
   }
 }
 
-// export function fetchSingleEmployee(id) {
-// 	return async dispatch => {
-// 		dispatch(getSingleEmployee())
-
-// 	try {
-// 		const response = await fetch('/v1/employees/' + id)
-// 		const data = await response.json()
-// 		dispatch(getSingleEmployeeSuccess(data))
-// 	} catch (error) {
-// 		dispatch(getSingleEmployeeFailure())
-// 	}
-//   }
-// }
-
-
 export function fetchSingleEmployee(id) {
 	return (dispatch) => {
 		dispatch(getSingleEmployee());
@@ -93,6 +78,26 @@ export function createNewEmployee(data, csrf) {
 				.then (resp => resp.json())
 				.then (employee => {
 					dispatch(employeeCreatedSucess(employee))
+				})
+		)
+	}
+}
+
+export function updateEmployee(data, csrf) {
+	return (dispatch) => {
+		let employee = {
+			method: 'patch',
+			body: JSON.stringify(data),
+			headers: {
+				'Content-Type:': 'application/json',
+				'X-CSRF-Token': csrf
+			}
+		}
+		return (
+			fetch('/v1/employees', employee)
+				.then(resp => resp.json())
+				.then (employee => {
+					dispatch(employeeUpdatedSuccess(employee))
 				})
 		)
 	}
