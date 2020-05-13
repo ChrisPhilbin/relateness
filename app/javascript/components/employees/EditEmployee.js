@@ -28,6 +28,8 @@ const EditEmployee = (props) => {
     const [localHiredate, setLocalHiredate]   = useState(hiredate)
     const [localDate, setLocalDate] = useState(date)
 
+    debugger;
+
     const onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
 		e.preventDefault()
 
