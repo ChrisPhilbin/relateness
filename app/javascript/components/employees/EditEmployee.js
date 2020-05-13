@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch, connect} from 'react-redux'
+import { parseISO, format } from 'date-fns'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
-
 
 import {fetchSingleEmployee} from '../actions/employeesActions'
 import {updateEmployee} from '../actions/employeesActions'
@@ -21,33 +21,32 @@ const EditEmployee = (props) => {
     //get initial values from redux store
     const fullname  = useSelector(state => state.employees.employee_details.fullname)
     const hiredate  = useSelector(state => state.employees.employee_details.hiredate)
-    const birthdate = useSelector(state => state.employees.employee_details.birthdate)
+    const date = useSelector(state => state.employees.employee_details.date)
 
     //set local state to the values that were in the redux store/returned by the fetchSingleEmployee function
-    const [local_fullname, setLocalFullname]   = useState(fullname)
-    const [local_hiredate, setLocalHiredate]   = useState(hiredate)
-    const [local_birthdate, setLocalBirthdate] = useState(birthdate)
+    const [localFullname, setLocalFullname]   = useState(fullname)
+    const [localHiredate, setLocalHiredate]   = useState(hiredate)
+    const [localDate, setLocalDate] = useState(date)
 
-    onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
+    const onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
 		e.preventDefault()
 
-		let formData = {employee: this.state}
+		let formData = {employee: ''}
 
-		this.props.updateEmployee(formData, csrf)
-		this.props.history.push('/')
-		debugger;
+		props.updateEmployee(formData, csrf)
+		props.history.push('/')
     }
 
-    onFullnameChange = (e) => setLocalFullname({
-        [e.currentTarget.fullname]: e.currentTarget.value
+    const onLocalFullnameChange = (e) => setLocalFullname({
+        [localFullname]: e.currentTarget.value
     })
 
-    onHireChange = (date) => setLocalHiredate({
-        [date.currentTarget.hiredate]: date.currentTarget.value
+    const onLocalHireChange = (date) => setLocalHiredate({
+        [localHiredate]: date.currentTarget.value
     })
 
-    onBirthdateChange = (date) => setLocalBirthdate({
-        [date.currentTarget.birthdate]: date.currentTarget.value
+    const onLocalDateChange = (date) => setLocalDate({
+        [localDate]: date.currentTarget.value
     })
     
 	return(
@@ -56,20 +55,20 @@ const EditEmployee = (props) => {
             <Form>
                 <Form.Group controlId="formEmployeeFullname">
                     <Form.Label>Employee's fullname:</Form.Label>
-                    <Form.Control type="text" name="fullname" placeholder="Samantha Smith" autoFocus value={this.state.fullname} onChange={this.onFullnameChange} />
+                    <Form.Control type="text" name="fullname" placeholder="Samantha Smith" autoFocus value={localFullname} onChange={onLocalFullnameChange} />
                 </Form.Group>
 
                 <Form.Group controlId="formEmployeeHiredate">
                     <Form.Label>Hire date: </Form.Label>
-                    <DatePicker selected={this.state.hiredate} onChange={this.onLocalHireChange} />
+                    <DatePicker selected={parseISO(localHiredate)} onChange={onLocalHireChange} />
                 </Form.Group>
 
                 <Form.Group controlId="formEmployeeBirthday">
                     <Form.Label>Birthday: </Form.Label>
-                    <DatePicker selected={this.state.birthdate} onChange={this.onLocalBirthdateChange} />
+                    <DatePicker selected={parseISO(localDate)} onChange={onLocalDateChange} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={this.onSubmit}>
+                <Button variant="primary" type="submit" onClick={onSubmit}>
                     Update details
                 </Button>
             </Form>

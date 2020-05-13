@@ -14,7 +14,7 @@ class NewEmployee extends React.Component {
 	state = {
 		fullname: '',
 		hiredate:  new Date(),
-		birthdate: new Date()
+		date: new Date()
 	}
 
 	onChange = (e) => {
@@ -25,8 +25,8 @@ class NewEmployee extends React.Component {
 		this.setState({hiredate: date})
 	}
 
-	onBirthdayChange = (date) => {
-		this.setState({birthday: date})
+	onDateChange = (date) => {
+		this.setState({date: date})
 	}
 
 	onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
@@ -56,8 +56,7 @@ class NewEmployee extends React.Component {
 
 					<Form.Group controlId="formEmployeeBirthday">
 						<Form.Label>Birthday: </Form.Label>
-						<DatePicker selected={this.state.birthdate} onChange={this.onBirthdateChange} />
-						{/* <Form.Control type="text" name="birthday" placeholder="mm/dd/yy" value={this.state.birthday} onChange={this.onChange} /> */}
+						<DatePicker selected={this.state.date} onChange={this.onDateChange} />
 					</Form.Group>
 
 					<Button variant="primary" type="submit" onClick={this.onSubmit}>
