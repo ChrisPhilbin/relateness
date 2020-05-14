@@ -19,6 +19,8 @@ export const EmployeeInterest = (props) => {
 	const interests_loading       =  useSelector(state => state.interests.loading)
 	const interests_hasErrors     =  useSelector(state => state.interests.hasErrors)
 
+	debugger;
+
 
 	if (interests_loading === "true") {
 		return (<p>Loading their interests... please wait...</p>)
@@ -28,11 +30,11 @@ export const EmployeeInterest = (props) => {
 		return (<p>Something went wrong when trying to load their interests... please try again...</p>)
 	}
 
-	if (interests === '[]') {
-		return(<p>It looks like you haven't assigned any interests yet...</p>)
+	if (interests.length == 0) {
+		return(<p>It looks like you haven't assigned any interests yet. Click here to assign some</p>)
 	}
 
-	if (interests != '[]') {
+	if (interests.length >= 1) {
 		return(
 			<div>
 				{ JSON.stringify(interests) != '[]' && 
