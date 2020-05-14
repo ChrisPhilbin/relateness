@@ -24,11 +24,9 @@ const EditEmployee = (props) => {
     const date = useSelector(state => state.employees.employee_details.date)
 
     //set local state to the values that were in the redux store/returned by the fetchSingleEmployee function
-    const [localFullname, setLocalFullname]   = useState(fullname)
-    const [localHiredate, setLocalHiredate]   = useState(hiredate)
-    const [localDate, setLocalDate] = useState(date)
-
-    debugger;
+    let [localFullname, setLocalFullname]   = useState(fullname)
+    let [localHiredate, setLocalHiredate]   = useState(hiredate)
+    let [localDate, setLocalDate] = useState(date)
 
     const onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
 		e.preventDefault()
@@ -44,13 +42,13 @@ const EditEmployee = (props) => {
     })
 
     const onLocalHireChange = (date) => setLocalHiredate({
-        [localHiredate]: date.currentTarget.value
+        [localHiredate]: date
     })
 
-    const onLocalDateChange = (date) => setLocalDate({
-        [localDate]: date.currentTarget.value
-    })
-    
+    const onLocalDateChange = (date) => setLocalDate(date)
+
+    debugger;
+
 	return(
 
 		<section>
