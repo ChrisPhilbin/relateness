@@ -8,8 +8,6 @@ import { createNewInterest } from '..interests/interestsActions'
 
 const NewInterest = () => {
 
-
-    //initialize interest to be a blank string
     let [interest, setInterest] = useState('')
 
     const onInterestSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
@@ -27,7 +25,7 @@ const NewInterest = () => {
                     </Form.Group>
 
                     <Button variant="primary" type="submit" onClick={onInterestSubmit}>
-                        Create
+                        Add
                     </Button>
 
                 </Form>

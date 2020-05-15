@@ -23,7 +23,9 @@ export default function interestReducer(state = initialState, action) {
     case actions.GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS:
     	return{ ...state, interests_news: action.payload, interests_news_loading: false, interests_news_hasErrors: false}
     case actions.GET_EMPLOYEES_INTERESTS_NEWS_FAILURE:
-    	return{...state, interests_news_loading: false, interests_news_hasErrors: true}
+		return{...state, interests_news_loading: false, interests_news_hasErrors: true}
+	case actions.INTEREST_CREATED_SUCCESS:
+		return {...state, interests: action.payload, loading: false, hasErrors: false}
      default:
      	return state
     }
