@@ -76,3 +76,17 @@ export function createNewInterest(data, csrf) {
 		)
 	}
 }
+
+export function fetchAllInterests() {
+	return async dispatch => {
+	  dispatch(getInterests())
+  
+	  try {
+		const response = await fetch('/v1/interests')
+		const data = await response.json()
+		dispatch(getInterestsSuccess(data))
+	  } catch (error) {
+		dispatch(getInterestsFailure())
+	  }
+	}
+  }

@@ -19,9 +19,6 @@ export const EmployeeInterest = (props) => {
 	const interests_loading       =  useSelector(state => state.interests.loading)
 	const interests_hasErrors     =  useSelector(state => state.interests.hasErrors)
 
-	debugger;
-
-
 	if (interests_loading === "true") {
 		return (<p>Loading their interests... please wait...</p>)
 	}
