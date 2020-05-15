@@ -7,7 +7,7 @@ const ShowAllInterests = () => {
 
     const dispatch = useDispatch()
 
-    useEffect = (() => {
+    useEffect(() => {
         dispatch(fetchAllInterests())
     }, [])
 
