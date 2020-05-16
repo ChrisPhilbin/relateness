@@ -4,7 +4,6 @@ export const initialState = {
 	interests: [],
 	loading: false,
 	hasErrors: false,
-	// interests_news: {"articles":["loading..."]},
 	interests_news: {},
 	interests_news_loading: false,
 	interests_news_hasErrors: false

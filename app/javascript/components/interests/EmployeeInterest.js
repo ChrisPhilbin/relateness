@@ -38,7 +38,7 @@ export const EmployeeInterest = (props) => {
 					<>
 					{interests.map( (interest) => (
 						<div key={interest.id}>
-							{interest.interest}
+							{interest.name}
 						</div>
 					))}
 					</>

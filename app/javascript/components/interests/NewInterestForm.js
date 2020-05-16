@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-import { createNewInterest } from '..interests/interestsActions'
+import { createNewInterest } from '../actions/interestsActions'
 
-const NewInterest = () => {
+const NewInterestForm = () => {
+
+    const dispatch = useDispatch()
 
     let [interest, setInterest] = useState('')
 
     const onInterestSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
         e.preventDefault()
-        createNewInterest(e.target.value, csrf)
+        let new_interest = {name: interest}
+        dispatch(createNewInterest(new_interest, csrf))
     }
 
     return(
@@ -22,16 +25,15 @@ const NewInterest = () => {
                     <Form.Group controlId="formNewInterest">
                         <Form.Label>Add new interest:</Form.Label>
                         <Form.Control type="text" name="interest" placeholder="Enter interest..." value={interest} onChange={(e) => setInterest(e.target.value)} />
+
+                        <Button variant="primary" type="submit" onClick={onInterestSubmit}>
+                            Add
+                        </Button>
                     </Form.Group>
-
-                    <Button variant="primary" type="submit" onClick={onInterestSubmit}>
-                        Add
-                    </Button>
-
                 </Form>
             </div>
         </section>
     )
 }
 
-export default NewInterest
+export default NewInterestForm

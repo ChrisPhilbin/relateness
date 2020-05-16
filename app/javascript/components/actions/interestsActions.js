@@ -1,10 +1,11 @@
-export const GET_INTERESTS = 'GET_INTERESTS'
-export const GET_INTERESTS_SUCCESS = 'GET_INTERESTS_SUCCESS'
-export const GET_INTERESTS_FAILURE = 'GET_INTERESTS_FAILURE'
-export const GET_EMPLOYEES_INTERESTS_NEWS = 'GET_EMPLOYEES_INTERESTS_NEWS'
+export const GET_INTERESTS                        = 'GET_INTERESTS'
+export const GET_INTERESTS_SUCCESS                = 'GET_INTERESTS_SUCCESS'
+export const GET_INTERESTS_FAILURE                = 'GET_INTERESTS_FAILURE'
+export const GET_EMPLOYEES_INTERESTS_NEWS         = 'GET_EMPLOYEES_INTERESTS_NEWS'
 export const GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS = 'GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS'
 export const GET_EMPLOYEES_INTERESTS_NEWS_FAILURE = 'GET_EMPLOYEES_INTERESTS_NEWS_FAILURE'
-export const INTEREST_CREATED_SUCCESS = 'INTEREST_CREATED_SUCCESS'
+export const INTEREST_CREATED_SUCCESS             = 'INTEREST_CREATED_SUCCESS'
+export const DELETE_INTEREST_SUCCESS              = 'DELETE_INTEREST_SUCCESS'
 
 export const getInterests = () => ({
 	type: GET_INTERESTS,
@@ -36,6 +37,10 @@ export const getEmployeesInterestsNewsFailure = () => ({
 export const interestCreatedSucess = (interest) => ({
 	type: INTEREST_CREATED_SUCCESS,
 	payload: interest,
+})
+
+export const deleteInterestSuccess = () => ({
+	type: DELETE_INTEREST_SUCCESS,
 })
 
 export function fetchEmployeeInterestsNews(id) {
@@ -78,15 +83,27 @@ export function createNewInterest(data, csrf) {
 }
 
 export function fetchAllInterests() {
-	return async dispatch => {
-	  dispatch(getInterests())
-  
-	  try {
-		const response = await fetch('/v1/interests')
-		const data = await response.json()
-		dispatch(getInterestsSuccess(data))
-	  } catch (error) {
-		dispatch(getInterestsFailure())
-	  }
+	return (dispatch) => {
+		dispatch(getInterests());
+			fetch('/v1/interests')
+				.then(response => response.json())
+				.then(data => dispatch(getInterestsSuccess(data)));
 	}
-  }
+}
+
+// export function deleteInterest(id, csrf) {
+// 	return dispatch => {
+// 		let deleted = {
+// 			method: 'DELETE',
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 				'X-CSRF-Token': csrf
+// 			}
+
+// 		}
+// 		return (
+// 			fetch('/v1/interests/' + id, deleted)
+// 				.then (dispatch(deleteInterestSuccess()))
+// 		)
+// 	}
+// }

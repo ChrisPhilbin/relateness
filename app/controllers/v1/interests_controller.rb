@@ -43,6 +43,6 @@ class V1::InterestsController < ApplicationController
 	private
 
 	def interest_params
-		params.require(:interest).permit(:interest)
+		params.require(:interest).permit(:name)
 	end
 end

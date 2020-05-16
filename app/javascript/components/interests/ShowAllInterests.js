@@ -1,15 +1,24 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import fetchAllInterests from '../actions/interestsActions'
+import Button from 'react-bootstrap/Button'
 
-const ShowAllInterests = () => {
+import {fetchAllInterests} from '../actions/interestsActions'
+// import {deleteInterest} from '../actions/interestsActions'
+import NewInterestForm from './NewInterestForm'
+
+export const ShowAllInterests = () => {
 
     const dispatch = useDispatch()
+    // const csrf = document.querySelector('[name=csrf-token]').content
 
     useEffect(() => {
         dispatch(fetchAllInterests())
     }, [])
+
+    const deleteInterest = () => (
+        alert("Are you sure?")
+    )
 
     const interests               =  useSelector(state => state.interests.interests)
 	const interests_loading       =  useSelector(state => state.interests.loading)
@@ -31,11 +40,15 @@ const ShowAllInterests = () => {
 	if (interests.length >= 1) {
 		return(
 			<div>
+                <NewInterestForm />
 				{ JSON.stringify(interests) != '[]' && 
 					<>
 					{interests.map( (interest) => (
 						<div key={interest.id}>
-							{interest.interest}
+							{interest.name}
+                            <Button onClick={ () => {deleteInterest()} }>
+                                Remove
+                            </Button>
 						</div>
 					))}
 					</>
@@ -44,5 +57,4 @@ const ShowAllInterests = () => {
 		)
 	}
 }
-
 export default ShowAllInterests
