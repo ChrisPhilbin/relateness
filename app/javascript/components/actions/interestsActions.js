@@ -39,8 +39,9 @@ export const interestCreatedSucess = (interest) => ({
 	payload: interest,
 })
 
-export const deleteInterestSuccess = () => ({
+export const deleteInterestSuccess = (id) => ({
 	type: DELETE_INTEREST_SUCCESS,
+	payload: id,
 })
 
 export function fetchEmployeeInterestsNews(id) {
@@ -91,19 +92,21 @@ export function fetchAllInterests() {
 	}
 }
 
-// export function deleteInterest(id, csrf) {
-// 	return dispatch => {
-// 		let deleted = {
-// 			method: 'DELETE',
-// 			headers: {
-// 				'Content-Type': 'application/json',
-// 				'X-CSRF-Token': csrf
-// 			}
+export function deleteInterest(interest, csrf) {
+	debugger;
+	return dispatch => {
+		let id = interest.id
+		let deleted = {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-Token': csrf
+			}
 
-// 		}
-// 		return (
-// 			fetch('/v1/interests/' + id, deleted)
-// 				.then (dispatch(deleteInterestSuccess()))
-// 		)
-// 	}
-// }
+		}
+		return (
+			fetch('/v1/interests/' + id, deleted)
+				.then (dispatch(deleteInterestSuccess(id)))
+		)
+	}
+}

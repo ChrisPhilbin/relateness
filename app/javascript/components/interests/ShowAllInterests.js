@@ -4,21 +4,21 @@ import {useSelector, useDispatch} from 'react-redux'
 import Button from 'react-bootstrap/Button'
 
 import {fetchAllInterests} from '../actions/interestsActions'
-// import {deleteInterest} from '../actions/interestsActions'
+import {deleteInterest} from '../actions/interestsActions'
 import NewInterestForm from './NewInterestForm'
 
 export const ShowAllInterests = () => {
 
     const dispatch = useDispatch()
-    // const csrf = document.querySelector('[name=csrf-token]').content
+    const csrf = document.querySelector('[name=csrf-token]').content
 
     useEffect(() => {
         dispatch(fetchAllInterests())
     }, [])
 
-    const deleteInterest = () => (
-        alert("Are you sure?")
-    )
+    // const deleteInterest = (interest) => (
+    //     dispatch(deleteInterest(interest))
+    // )
 
     const interests               =  useSelector(state => state.interests.interests)
 	const interests_loading       =  useSelector(state => state.interests.loading)
@@ -46,7 +46,7 @@ export const ShowAllInterests = () => {
 					{interests.map( (interest) => (
 						<div key={interest.id}>
 							{interest.name}
-                            <Button onClick={ () => {deleteInterest()} }>
+                            <Button onClick={ () => {dispatch(deleteInterest(interest, csrf))} }>
                                 Remove
                             </Button>
 						</div>

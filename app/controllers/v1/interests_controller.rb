@@ -9,6 +9,21 @@ class V1::InterestsController < ApplicationController
 		end
 	end
 
+	# def show
+	# 	if user_signed_in?
+	# 		interest = Interest.find(params[:id])
+	# 		render json: interest. status: :created
+	# 	else
+	# 		render json: interest.errors, status: 400
+	# 	end
+	# end
+
+	def destroy
+		if user_signed_in?
+			Interest.find(params[:id]).destroy
+		end
+	end
+
 	def employees_interests
 		if user_signed_in?
 			employee = Employee.find(params[:id])
