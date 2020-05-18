@@ -8,6 +8,7 @@ export const GET_SINGLE_EMPLOYEE_SUCCESS = 'GET_SINGLE_EMPLOYEE_SUCCESS'
 export const GET_SINGLE_EMPLOYEE_FAILURE = 'GET_SINGLE_EMPLOYEE_FAILURE'
 export const EMPLOYEE_CREATED_SUCCESS    = 'EMPLOYEE_CREATED_SUCCESS'
 export const EMPLOYEE_UPDATED_SUCCESS    = 'EMPLOYEE_UPDATED_SUCCESS'
+export const EMPLOYEE_DELETED_SUCCESS    = 'EMPLOYEE_DELETED_SUCCESS'
 
 export const getEmployees = () => ({
   type: GET_EMPLOYEES,
@@ -43,6 +44,11 @@ export const employeeCreatedSucess = (employee_details) => ({
 export const employeeUpdatedSuccess = (employee_details) => ({
 	type: EMPLOYEE_UPDATED_SUCCESS,
 	payload: employee_details,
+})
+
+export const deleteEmployeeSuccess = (id) => ({
+	type: EMPLOYEE_DELETED_SUCCESS,
+	payload: id,
 })
 
 export function fetchEmployees() {
@@ -85,6 +91,24 @@ export function createNewEmployee(data, csrf) {
 				.then (employee => {
 					dispatch(employeeCreatedSucess(employee))
 				})
+		)
+	}
+}
+
+export function deleteEmployee(employee, csrf) {
+	return dispatch => {
+		let id = employee.id
+		let deleted = {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-Token': csrf
+			}
+
+		}
+		return (
+			fetch('/v1/employees/' + id, deleted)
+				.then(dispatch(deleteEmployeeSuccess(id)))
 		)
 	}
 }

@@ -20,6 +20,12 @@ class V1::EmployeesController < ApplicationController
 		end	
 	end
 
+	def destroy
+		if user_signed_in?
+			Employee.find(params[:id]).destroy
+		end
+	end
+
 	def show
 		render json: Employee.find(params[:id])
 	end

@@ -16,10 +16,6 @@ export const ShowAllInterests = () => {
         dispatch(fetchAllInterests())
     }, [])
 
-    // const deleteInterest = (interest) => (
-    //     dispatch(deleteInterest(interest))
-    // )
-
     const interests               =  useSelector(state => state.interests.interests)
 	const interests_loading       =  useSelector(state => state.interests.loading)
 	const interests_hasErrors     =  useSelector(state => state.interests.hasErrors)

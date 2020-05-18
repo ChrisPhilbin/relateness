@@ -93,7 +93,6 @@ export function fetchAllInterests() {
 }
 
 export function deleteInterest(interest, csrf) {
-	debugger;
 	return dispatch => {
 		let id = interest.id
 		let deleted = {

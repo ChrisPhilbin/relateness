@@ -24,7 +24,7 @@ export const EmployeeDetails = (props) => {
 			<br />
 			<Alert key={employee_details.id} variant="primary">
 				<strong>Viewing {employee_details.fullname}'s details</strong> - 
-				<Link to={"/employees/" + props.id + "/edit"}>Edit details</Link>
+				<Link to={"/employees/" + props.id + "/edit"}> Edit details</Link>
 			</Alert>
 			<strong>Work anniversary:</strong><br />
 			<strong>Birthday:</strong><br />

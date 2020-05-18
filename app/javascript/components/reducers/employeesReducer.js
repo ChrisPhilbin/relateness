@@ -28,6 +28,8 @@ export default function employeesReducer(state = initialState, action) {
       return {...state, loading: false, hasErrors: false}
     case actions.EMPLOYEE_UPDATED_SUCCESS:
       return {...state, loading: false, hasErrors: false}
+    case actions.EMPLOYEE_DELETED_SUCCESS:
+		  return {...state, employees: state.employees.filter(employee => employee.id !== action.payload)}
     default:
       return state
   }
