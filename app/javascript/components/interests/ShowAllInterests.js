@@ -36,7 +36,7 @@ export const ShowAllInterests = () => {
 	if (interests.length >= 1) {
 		return(
 			<div>
-                <NewInterestForm />
+                <NewInterestForm interests={interests} />
 				{ JSON.stringify(interests) != '[]' && 
 					<>
 					{interests.map( (interest) => (

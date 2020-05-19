@@ -28,7 +28,7 @@ class Interest < ApplicationRecord
 		arr = []
 
 		interests.each do |i|
-			arr << i.interest
+			arr << i.name
 		end
 
 		if arr.empty?

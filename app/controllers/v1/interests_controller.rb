@@ -1,6 +1,8 @@
 require 'pry'
 class V1::InterestsController < ApplicationController
 
+	# validates_uniqueness_of :name, :message => "This interest already exists"
+
 	def index
 		if user_signed_in?
 			render json: Interest.all
