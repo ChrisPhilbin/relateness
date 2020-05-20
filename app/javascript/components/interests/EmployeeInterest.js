@@ -6,6 +6,8 @@ import {useSelector, useDispatch} from 'react-redux'
 
 import {fetchEmployeeInterests} from '../actions/interestsActions'
 
+import AddInterestsToEmployeeForm from './AddInterestsToEmployeeForm'
+
 
 export const EmployeeInterest = (props) => {
 
@@ -15,7 +17,7 @@ export const EmployeeInterest = (props) => {
 		dispatch(fetchEmployeeInterests(props.id))
 	}, [])
 
-	const interests               =  useSelector(state => state.interests.interests)
+	const interests               =  useSelector(state => state.interests.employees_interests)
 	const interests_loading       =  useSelector(state => state.interests.loading)
 	const interests_hasErrors     =  useSelector(state => state.interests.hasErrors)
 
@@ -34,6 +36,7 @@ export const EmployeeInterest = (props) => {
 	if (interests.length >= 1) {
 		return(
 			<div>
+				<AddInterestsToEmployeeForm id={props.id} />
 				{ JSON.stringify(interests) != '[]' && 
 					<>
 					{interests.map( (interest) => (

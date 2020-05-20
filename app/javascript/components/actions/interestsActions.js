@@ -1,4 +1,5 @@
 export const GET_INTERESTS                        = 'GET_INTERESTS'
+export const GET_EMPLOYEES_INTERESTS_SUCCESS      = 'GET_EMPLOYEES_INTERESTS_SUCCESS'
 export const GET_INTERESTS_SUCCESS                = 'GET_INTERESTS_SUCCESS'
 export const GET_INTERESTS_FAILURE                = 'GET_INTERESTS_FAILURE'
 export const GET_EMPLOYEES_INTERESTS_NEWS         = 'GET_EMPLOYEES_INTERESTS_NEWS'
@@ -13,6 +14,11 @@ export const getInterests = () => ({
 
 export const getInterestsSuccess = (interests) => ({
 	type: GET_INTERESTS_SUCCESS,
+	payload: interests,
+})
+
+export const getEmployeesInterestsSuccess = (interests) => ({
+	type: GET_EMPLOYEES_INTERESTS_SUCCESS,
 	payload: interests,
 })
 
@@ -49,7 +55,7 @@ export function fetchEmployeeInterestsNews(id) {
 		dispatch(getEmployeesInterestsNews());
 			fetch('/v1/employees/' + id + '/interests/newsfeed')
 				.then(response => response.json())
-				.then(data => dispatch(getEmployeesInterestsNewsSuccess(data)));
+				.then(data => dispatch(getEmployeesInterestsNewsSuccess(data)))
 	}
 }
 
@@ -58,7 +64,7 @@ export function fetchEmployeeInterests(id) {
 		dispatch(getInterests());
 			fetch('/v1/employees/' + id + '/interests')
 				.then(response => response.json())
-				.then(data => dispatch(getInterestsSuccess(data)));
+				.then(data => dispatch(getEmployeesInterestsSuccess(data)));
 	}
 }
 
