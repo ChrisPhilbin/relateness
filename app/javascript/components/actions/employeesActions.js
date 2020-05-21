@@ -1,14 +1,14 @@
 //should this be broken up into smaller pieces?
 
-export const GET_EMPLOYEES               = 'GET_EMPLOYEES'
-export const GET_EMPLOYEES_SUCCESS       = 'GET_EMPLOYEES_SUCCESS'
-export const GET_EMPLOYEES_FAILURE       = 'GET_EMPLOYEES_FAILURE'
-export const GET_SINGLE_EMPLOYEE         = 'GET_SINGLE_EMPLOYEE'
-export const GET_SINGLE_EMPLOYEE_SUCCESS = 'GET_SINGLE_EMPLOYEE_SUCCESS'
-export const GET_SINGLE_EMPLOYEE_FAILURE = 'GET_SINGLE_EMPLOYEE_FAILURE'
-export const EMPLOYEE_CREATED_SUCCESS    = 'EMPLOYEE_CREATED_SUCCESS'
-export const EMPLOYEE_UPDATED_SUCCESS    = 'EMPLOYEE_UPDATED_SUCCESS'
-export const EMPLOYEE_DELETED_SUCCESS    = 'EMPLOYEE_DELETED_SUCCESS'
+export const GET_EMPLOYEES                     = 'GET_EMPLOYEES'
+export const GET_EMPLOYEES_SUCCESS             = 'GET_EMPLOYEES_SUCCESS'
+export const GET_EMPLOYEES_FAILURE             = 'GET_EMPLOYEES_FAILURE'
+export const GET_SINGLE_EMPLOYEE               = 'GET_SINGLE_EMPLOYEE'
+export const GET_SINGLE_EMPLOYEE_SUCCESS       = 'GET_SINGLE_EMPLOYEE_SUCCESS'
+export const GET_SINGLE_EMPLOYEE_FAILURE       = 'GET_SINGLE_EMPLOYEE_FAILURE'
+export const EMPLOYEE_CREATED_SUCCESS          = 'EMPLOYEE_CREATED_SUCCESS'
+export const EMPLOYEE_UPDATED_SUCCESS          = 'EMPLOYEE_UPDATED_SUCCESS'
+export const EMPLOYEE_DELETED_SUCCESS          = 'EMPLOYEE_DELETED_SUCCESS'
 
 export const getEmployees = () => ({
   type: GET_EMPLOYEES,
@@ -119,7 +119,7 @@ export function updateEmployee(data, csrf) {
 			method: 'patch',
 			body: JSON.stringify(data),
 			headers: {
-				'Content-Type:': 'application/json',
+				'Content-Type': 'application/json',
 				'X-CSRF-Token': csrf
 			}
 		}

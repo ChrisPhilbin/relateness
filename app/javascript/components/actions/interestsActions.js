@@ -7,6 +7,7 @@ export const GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS = 'GET_EMPLOYEES_INTERESTS_NEW
 export const GET_EMPLOYEES_INTERESTS_NEWS_FAILURE = 'GET_EMPLOYEES_INTERESTS_NEWS_FAILURE'
 export const INTEREST_CREATED_SUCCESS             = 'INTEREST_CREATED_SUCCESS'
 export const DELETE_INTEREST_SUCCESS              = 'DELETE_INTEREST_SUCCESS'
+export const ADD_INTERESTS_TO_EMPLOYEE_SUCCESS    = 'ADD_INTERESTS_TO_EMPLOYEE_SUCCESS'
 
 export const getInterests = () => ({
 	type: GET_INTERESTS,
@@ -48,6 +49,11 @@ export const interestCreatedSucess = (interest) => ({
 export const deleteInterestSuccess = (id) => ({
 	type: DELETE_INTEREST_SUCCESS,
 	payload: id,
+})
+
+export const addInterestsToEmployeeSuccess = (interests) => ({
+	type: ADD_INTERESTS_TO_EMPLOYEE_SUCCESS,
+	payload: interests,
 })
 
 export function fetchEmployeeInterestsNews(id) {
@@ -112,6 +118,26 @@ export function deleteInterest(interest, csrf) {
 		return (
 			fetch('/v1/interests/' + id, deleted)
 				.then (dispatch(deleteInterestSuccess(id)))
+		)
+	}
+}
+
+export function addInterestsToEmployee(interests, csrf) {
+	return (dispatch) => {
+		let interests = {
+			method: 'post',
+			body: JSON.stringify(interests),
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-Token': csrf
+			}
+		}
+		return(
+			fetch('/v1/employees/interests/new', interests)
+			.then(resp => resp.json())
+			.then (interests => {
+				dispatch(addInterestsToEmployeeSuccess(interests))
+			})
 		)
 	}
 }

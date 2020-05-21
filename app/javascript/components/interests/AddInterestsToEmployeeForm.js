@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import {fetchAllInterests} from '../actions/interestsActions'
-// import {addInterestsToEmployee} from '../actions/employeesActions'
+import {addInterestsToEmployee} from '../actions/employeesActions'
 
 const AddInterestsToEmployeeForm = (props) => {
 
@@ -26,15 +26,17 @@ const AddInterestsToEmployeeForm = (props) => {
         options.push({ value: interest.name, label: interest.name })
     ))
 
-    const [selectedOption, setSelectedOption] = useState("test...")
+    const [selectedOptions, setSelectedOptions] = useState([])
 
-    const handleChange = selectedOption => {
-        setSelectedOption(selectedOption)
+    const handleChange = options => {
+        setSelectedOptions(options)
     };
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        debugger;
+        let ee_interests = selectedOptions.map( int => (int.value))
+        dispatch(addInterestsToEmployee(ee_interests))
+        
     }
 
     const animatedComponents = makeAnimated()
@@ -45,8 +47,9 @@ const AddInterestsToEmployeeForm = (props) => {
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
-            onChange={handleChange}
+            value={selectedOptions}
             options={options}
+            onChange={handleChange}
             />
 
             <Button variant="primary" type="submit">Assign</Button>
