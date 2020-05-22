@@ -122,9 +122,9 @@ export function deleteInterest(interest, csrf) {
 	}
 }
 
-export function addInterestsToEmployee(interests, csrf) {
+export function addInterestsToEmployee(interests, id, csrf) {
 	return (dispatch) => {
-		let interests = {
+		let interest_arr = {
 			method: 'post',
 			body: JSON.stringify(interests),
 			headers: {
@@ -133,7 +133,7 @@ export function addInterestsToEmployee(interests, csrf) {
 			}
 		}
 		return(
-			fetch('/v1/employees/interests/new', interests)
+			fetch('/v1/employees/' + id +'/interests/new', interest_arr)
 			.then(resp => resp.json())
 			.then (interests => {
 				dispatch(addInterestsToEmployeeSuccess(interests))

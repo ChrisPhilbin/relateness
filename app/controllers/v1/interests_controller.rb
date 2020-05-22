@@ -48,6 +48,19 @@ class V1::InterestsController < ApplicationController
 		end
 	end
 
+	def add_interest_to_employee
+		if user_signed_in?
+			employee = Employee.find(params[:id])
+			new_interests = params[:interests]
+			new_interests.each do |i|
+				interest = Interest.find_by(name: i)
+				employee.interests << interest
+				binding.pry
+			end
+			render json: employee.interests
+		end
+	end
+
 	private
 
 	def interest_params

@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import {fetchAllInterests} from '../actions/interestsActions'
-import {addInterestsToEmployee} from '../actions/employeesActions'
+import {addInterestsToEmployee} from '../actions/interestsActions'
 
 const AddInterestsToEmployeeForm = (props) => {
 
@@ -32,10 +32,12 @@ const AddInterestsToEmployeeForm = (props) => {
         setSelectedOptions(options)
     };
 
+    const csrf = document.querySelector('[name=csrf-token]').content
     const handleSubmit = (e) => {
         e.preventDefault()
-        let ee_interests = selectedOptions.map( int => (int.value))
-        dispatch(addInterestsToEmployee(ee_interests))
+        let interests_arr = selectedOptions.map( int => (int.value))
+        let ee_interests = { interests: interests_arr }
+        dispatch(addInterestsToEmployee(ee_interests, props.id, csrf))
         
     }
 
