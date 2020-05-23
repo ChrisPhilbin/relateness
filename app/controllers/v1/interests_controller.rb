@@ -55,7 +55,6 @@ class V1::InterestsController < ApplicationController
 			new_interests.each do |i|
 				interest = Interest.find_by(name: i)
 				employee.interests << interest
-				binding.pry
 			end
 			render json: employee.interests
 		end

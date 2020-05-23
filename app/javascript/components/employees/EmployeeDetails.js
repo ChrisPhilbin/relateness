@@ -21,12 +21,28 @@ export const EmployeeDetails = (props) => {
 
 	return(
 		<div key={employee_details.id}>
+			<div className="container">
+				<div className="row">
+					<div className="col">
+						<p className="employee-name-lg">{employee_details.fullname}</p><br />
+						Job title | Email@email.com | (555)-867-5309
+					</div>
+				</div>
+				<div className="row">
+					<div className="col">
+						half width
+					</div>
+					<div className="col">
+						Half width
+					</div>
+				</div>
+			</div>
 			<br />
-			<Alert key={employee_details.id} variant="primary">
-				<strong>Viewing {employee_details.fullname}'s details</strong> - 
-				<Link to={"/employees/" + props.id + "/edit"}> Edit details</Link>
-			</Alert>
 			<strong>Work anniversary:</strong><br />
+			<strong>Email address:</strong><br />
+			<strong>Title:</strong><br />
+			<strong>Phone number:</strong><br />
+			<strong>Address:</strong><br />
 			<strong>Birthday:</strong><br />
 			<strong>Children:</strong><br />
 			<strong>Pets:</strong>

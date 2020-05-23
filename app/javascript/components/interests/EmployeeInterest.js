@@ -4,7 +4,7 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {fetchEmployeeInterests} from '../actions/interestsActions'
+import {fetchEmployeeInterests, addInterestsToEmployee} from '../actions/interestsActions'
 
 import AddInterestsToEmployeeForm from './AddInterestsToEmployeeForm'
 
@@ -30,7 +30,12 @@ export const EmployeeInterest = (props) => {
 	}
 
 	if (interests.length == 0) {
-		return(<p>It looks like you haven't assigned any interests yet. Click here to assign some</p>)
+		return(
+			<div>
+				It looks like you haven't assigned any interests yet.<br />
+				<AddInterestsToEmployeeForm id={props.id} />
+			</div>
+		)
 	}
 
 	if (interests.length >= 1) {
