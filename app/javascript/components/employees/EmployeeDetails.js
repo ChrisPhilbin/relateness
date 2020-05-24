@@ -23,29 +23,62 @@ export const EmployeeDetails = (props) => {
 		<div key={employee_details.id}>
 			<div className="container">
 				<div className="row">
-					<div className="col">
-						<p className="employee-name-lg">{employee_details.fullname}</p><br />
+					<div className="ee-personal-info-intro">
+						<p className="employee-name-lg">{employee_details.fullname}</p>
 						Job title | Email@email.com | (555)-867-5309
 					</div>
 				</div>
+
 				<div className="row">
-					<div className="col">
-						half width
+					<div className="ee-personal-info-header">
+						Personal Information
 					</div>
-					<div className="col">
-						Half width
+				</div>
+
+				<div className="row">
+					<div className="ee-details-info">
+						Name<br />
+						{employee_details.fullname}
+					</div>
+					<div className="ee-details-info">
+						Primary email<br />
+						email@email.com
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="ee-details-info">
+						Nickname<br />
+						Preferred_name
+					</div>
+					<div className="ee-details-info">
+						Primary home phone<br />
+						(555)-867-5309
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="ee-details-info">
+						Employee number<br />
+						123456
+					</div>
+					<div className="ee-details-info">
+						Primary work phone<br />
+						(555)-867-5309
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="ee-details-info">
+						Work anniversary<br />
+						{employee_details.hiredate}
+					</div>
+					<div className="ee-details-info">
+						Pets<br />
+						List_of_pets
 					</div>
 				</div>
 			</div>
-			<br />
-			<strong>Work anniversary:</strong><br />
-			<strong>Email address:</strong><br />
-			<strong>Title:</strong><br />
-			<strong>Phone number:</strong><br />
-			<strong>Address:</strong><br />
-			<strong>Birthday:</strong><br />
-			<strong>Children:</strong><br />
-			<strong>Pets:</strong>
 		</div>
 	)
 }

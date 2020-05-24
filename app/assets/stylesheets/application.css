@@ -31,3 +31,19 @@
     font-variant: normal;
     text-transform: none;
 }
+.ee-details-info {
+    color: gray;
+    line-height: 1.8;
+    padding: 10px;
+}
+
+.ee-personal-info-header {
+    width: 100%;
+    font-size: 26px;
+    padding-top: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.ee-personal-info-intro {
+    padding: 0px;
+}
