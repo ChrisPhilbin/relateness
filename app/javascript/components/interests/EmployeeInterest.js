@@ -47,7 +47,8 @@ export const EmployeeInterest = (props) => {
 					<>
 					{interests.map( (interest) => (
 						<div key={interest.id}>
-							{interest.name} <a href="#" onClick={() => {dispatch(deleteEmployee(props.id, interest.id, csrf))}}> remove</a>
+							{console.log(interest.id, props.id)}
+							{interest.name} <a href="#" onClick={() => {dispatch(deleteInterestFromEmployee(props.id, interest.id, csrf))}}> remove</a>
 						</div>
 					))}
 					</>

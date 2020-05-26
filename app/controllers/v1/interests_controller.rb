@@ -60,6 +60,15 @@ class V1::InterestsController < ApplicationController
 		end
 	end
 
+	def delete_interest_from_employee
+		if user_signed_in?
+			# binding.pry
+			employee = Employee.find(params[:id])
+			employee.interests.destroy(params[:interest])
+			render json: employee.interests
+		end
+	end
+
 	private
 
 	def interest_params

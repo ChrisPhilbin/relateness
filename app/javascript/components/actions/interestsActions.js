@@ -1,13 +1,14 @@
-export const GET_INTERESTS                        = 'GET_INTERESTS'
-export const GET_EMPLOYEES_INTERESTS_SUCCESS      = 'GET_EMPLOYEES_INTERESTS_SUCCESS'
-export const GET_INTERESTS_SUCCESS                = 'GET_INTERESTS_SUCCESS'
-export const GET_INTERESTS_FAILURE                = 'GET_INTERESTS_FAILURE'
-export const GET_EMPLOYEES_INTERESTS_NEWS         = 'GET_EMPLOYEES_INTERESTS_NEWS'
-export const GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS = 'GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS'
-export const GET_EMPLOYEES_INTERESTS_NEWS_FAILURE = 'GET_EMPLOYEES_INTERESTS_NEWS_FAILURE'
-export const INTEREST_CREATED_SUCCESS             = 'INTEREST_CREATED_SUCCESS'
-export const DELETE_INTEREST_SUCCESS              = 'DELETE_INTEREST_SUCCESS'
-export const ADD_INTERESTS_TO_EMPLOYEE_SUCCESS    = 'ADD_INTERESTS_TO_EMPLOYEE_SUCCESS'
+export const GET_INTERESTS                         = 'GET_INTERESTS'
+export const GET_EMPLOYEES_INTERESTS_SUCCESS       = 'GET_EMPLOYEES_INTERESTS_SUCCESS'
+export const GET_INTERESTS_SUCCESS                 = 'GET_INTERESTS_SUCCESS'
+export const GET_INTERESTS_FAILURE                 = 'GET_INTERESTS_FAILURE'
+export const GET_EMPLOYEES_INTERESTS_NEWS          = 'GET_EMPLOYEES_INTERESTS_NEWS'
+export const GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS  = 'GET_EMPLOYEES_INTERESTS_NEWS_SUCCESS'
+export const GET_EMPLOYEES_INTERESTS_NEWS_FAILURE  = 'GET_EMPLOYEES_INTERESTS_NEWS_FAILURE'
+export const INTEREST_CREATED_SUCCESS              = 'INTEREST_CREATED_SUCCESS'
+export const DELETE_INTEREST_SUCCESS               = 'DELETE_INTEREST_SUCCESS'
+export const ADD_INTERESTS_TO_EMPLOYEE_SUCCESS     = 'ADD_INTERESTS_TO_EMPLOYEE_SUCCESS'
+export const DELETE_INTEREST_FROM_EMPLOYEE_SUCCESS = 'DELETE_INTEREST_FROM_EMPLOYEE_SUCCESS'
 
 export const getInterests = () => ({
 	type: GET_INTERESTS,
@@ -53,6 +54,11 @@ export const deleteInterestSuccess = (id) => ({
 
 export const addInterestsToEmployeeSuccess = (interests) => ({
 	type: ADD_INTERESTS_TO_EMPLOYEE_SUCCESS,
+	payload: interests,
+})
+
+export const deleteInterestFromEmployeeSuccess = (interests) => ({
+	type: DELETE_INTEREST_FROM_EMPLOYEE_SUCCESS,
 	payload: interests,
 })
 
@@ -144,7 +150,7 @@ export function addInterestsToEmployee(interests, id, csrf) {
 
 export function deleteInterestFromEmployee(employee, interest, csrf) {
 	return dispatch => {
-		let ee_id = employee
+		let ee_id = parseInt(employee)
 		let int_id = interest
 		let deleted = {
 			method: 'DELETE',
@@ -156,7 +162,10 @@ export function deleteInterestFromEmployee(employee, interest, csrf) {
 		}
 		return (
 			fetch('/v1/employees/' + ee_id + '/interests/' + int_id, deleted)
-				.then(dispatch(deleteInterestFromEmployeeSuccess(interests)))
+			.then(resp => resp.json())
+			.then (interests => {
+				dispatch(deleteInterestFromEmployeeSuccess(interests))
+			})
 		)
 	}
 }
