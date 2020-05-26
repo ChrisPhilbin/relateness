@@ -141,3 +141,22 @@ export function addInterestsToEmployee(interests, id, csrf) {
 		)
 	}
 }
+
+export function deleteInterestFromEmployee(employee, interest, csrf) {
+	return dispatch => {
+		let ee_id = employee
+		let int_id = interest
+		let deleted = {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-Token': csrf
+			}
+
+		}
+		return (
+			fetch('/v1/employees/' + ee_id + '/interests/' + int_id, deleted)
+				.then(dispatch(deleteInterestFromEmployeeSuccess(interests)))
+		)
+	}
+}

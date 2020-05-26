@@ -9,6 +9,8 @@ import TopNav from './navigation/TopNav'
 import Container from 'react-bootstrap/Container'
 import ShowAllInterests from './interests/ShowAllInterests'
 
+import 'bootstrap/dist/css/bootstrap.css'
+
 const Index = () => {
   return(
 	<Container>

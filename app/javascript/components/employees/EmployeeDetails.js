@@ -21,59 +21,59 @@ export const EmployeeDetails = (props) => {
 
 	return(
 		<div key={employee_details.id}>
-			<div className="container">
+			<div className="container-fluid">
 				<div className="row">
-					<div className="ee-personal-info-intro">
+					<div className="container-fluid ee-personal-info-intro">
 						<p className="employee-name-lg">{employee_details.fullname}</p>
 						Job title | Email@email.com | (555)-867-5309
 					</div>
 				</div>
 
 				<div className="row">
-					<div className="ee-personal-info-header">
+					<div className="container-fluid ee-personal-info-header">
 						Personal Information
 					</div>
 				</div>
 
 				<div className="row">
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Name<br />
 						{employee_details.fullname}
 					</div>
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Primary email<br />
 						email@email.com
 					</div>
 				</div>
 
 				<div className="row">
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Nickname<br />
 						Preferred_name
 					</div>
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Primary home phone<br />
 						(555)-867-5309
 					</div>
 				</div>
 
 				<div className="row">
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Employee number<br />
 						123456
 					</div>
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Primary work phone<br />
 						(555)-867-5309
 					</div>
 				</div>
 
 				<div className="row">
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Work anniversary<br />
 						{employee_details.hiredate}
 					</div>
-					<div className="ee-details-info">
+					<div className="col-md-6 ee-details-info">
 						Pets<br />
 						List_of_pets
 					</div>

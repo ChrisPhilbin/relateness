@@ -4,7 +4,7 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import {fetchEmployeeInterests, addInterestsToEmployee} from '../actions/interestsActions'
+import {fetchEmployeeInterests, addInterestsToEmployee, deleteInterestFromEmployee} from '../actions/interestsActions'
 
 import AddInterestsToEmployeeForm from './AddInterestsToEmployeeForm'
 
@@ -12,6 +12,7 @@ import AddInterestsToEmployeeForm from './AddInterestsToEmployeeForm'
 export const EmployeeInterest = (props) => {
 
 	const dispatch = useDispatch()
+	const csrf = document.querySelector('[name=csrf-token]').content
 
 	useEffect(() =>{
 		dispatch(fetchEmployeeInterests(props.id))
@@ -46,7 +47,7 @@ export const EmployeeInterest = (props) => {
 					<>
 					{interests.map( (interest) => (
 						<div key={interest.id}>
-							{interest.name}
+							{interest.name} <a href="#" onClick={() => {dispatch(deleteEmployee(props.id, interest.id, csrf))}}> remove</a>
 						</div>
 					))}
 					</>
