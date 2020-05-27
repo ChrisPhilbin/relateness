@@ -2,6 +2,7 @@ require 'pry'
 class V1::InterestsController < ApplicationController
 
 	# validates_uniqueness_of :name, :message => "This interest already exists"
+	before_action :authenticate_user!
 
 	def index
 		if user_signed_in?
@@ -62,9 +63,8 @@ class V1::InterestsController < ApplicationController
 
 	def delete_interest_from_employee
 		if user_signed_in?
-			# binding.pry
-			employee = Employee.find(params[:id])
-			employee.interests.destroy(params[:interest])
+			employee = Employee.find(params[:employee_id])
+			employee.interests.destroy(params[:id])
 			render json: employee.interests
 		end
 	end

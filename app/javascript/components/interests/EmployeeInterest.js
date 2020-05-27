@@ -3,6 +3,7 @@
 
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import Button from 'react-bootstrap/Button'
 
 import {fetchEmployeeInterests, addInterestsToEmployee, deleteInterestFromEmployee} from '../actions/interestsActions'
 
@@ -47,8 +48,7 @@ export const EmployeeInterest = (props) => {
 					<>
 					{interests.map( (interest) => (
 						<div key={interest.id}>
-							{console.log(interest.id, props.id)}
-							{interest.name} <a href="#" onClick={() => {dispatch(deleteInterestFromEmployee(props.id, interest.id, csrf))}}> remove</a>
+							{interest.name} <Button onClick={() => {dispatch(deleteInterestFromEmployee(props.id, interest.id, csrf))}}>remove</Button>
 						</div>
 					))}
 					</>

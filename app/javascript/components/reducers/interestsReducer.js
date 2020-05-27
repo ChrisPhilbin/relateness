@@ -18,6 +18,8 @@ export default function interestReducer(state = initialState, action) {
 		return {...state, employees_interests: action.payload, loading: false, hasErrors: false}
 	case actions.ADD_INTERESTS_TO_EMPLOYEE_SUCCESS:
 		return {...state, employees_interests: action.payload, loading: false, hasErrors: false}
+	case actions.DELETE_INTEREST_FROM_EMPLOYEE_SUCCESS:
+		return {...state, employees_interests: action.payload, loading: false, hasErrors: false}
     case actions.GET_INTERESTS_SUCCESS:
     	return { ...state, interests: action.payload, loading: false, hasErrors: false}
     case actions.GET_INTERESTS_FAILURE:
