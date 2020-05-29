@@ -17,7 +17,7 @@ const Alert = (props) => {
     }
 
     const message = props.message
-    const alertClassName = 'alert ${ alertClass(message.type) } fade in'
+    const alertClassName = 'alert ' + alertClass(message.type) + ' fade in'
 
     return(
         <div clasName={ alertClassName }>

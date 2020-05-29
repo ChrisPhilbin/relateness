@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
 	<%= javascript_pack_tag 'application' %>
+    <%= react_component 'FlashMessages', messages: flash_messages %>
 	<%= react_component("App") %>
 <% else %>
+    <%= react_component 'FlashMessages', messages: flash_messages %>
 	<%= link_to('Login', new_user_session_path) %>
 	<%= link_to('Sign up', new_user_registration_path) %>
 <% end %>

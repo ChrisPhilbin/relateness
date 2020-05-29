@@ -56,8 +56,7 @@ class V1::InterestsController < ApplicationController
 			new_interests.each do |i|
 				interest = Interest.find_by(name: i)
 				if employee.interests.find_by(name: i)
-					break
-					# flash[:alert] = "This interest has already been assigned!"
+					flash.now[:alert] = "This interest has already been assigned!"
 				else
 					employee.interests << interest
 				end
