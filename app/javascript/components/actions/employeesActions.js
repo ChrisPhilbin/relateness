@@ -1,4 +1,4 @@
-//should this be broken up into smaller pieces?
+import { success } from '../helpers/notifications'
 
 export const GET_EMPLOYEES                     = 'GET_EMPLOYEES'
 export const GET_EMPLOYEES_SUCCESS             = 'GET_EMPLOYEES_SUCCESS'
@@ -89,6 +89,7 @@ export function createNewEmployee(data, csrf) {
 			fetch('/v1/employees', createEmployee)
 				.then (resp => resp.json())
 				.then (employee => {
+					success('Employee created!')
 					dispatch(employeeCreatedSucess(employee))
 				})
 		)
