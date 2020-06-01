@@ -8,6 +8,7 @@ import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import Index from './Index'
+import { Alert } from './helpers/notifications'
 import rootReducer from './reducers'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,6 +21,7 @@ const App = () => {
 	  <div>
 		  <Provider store={store}>
 		    <Index />
+			<Alert stack={ { limit: 3 } } />
 		  </Provider>
 	  </div>
 	)
