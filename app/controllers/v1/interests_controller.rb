@@ -13,9 +13,9 @@ class V1::InterestsController < ApplicationController
 	end
 
 	def destroy
-		if user_signed_in?
-			Interest.find(params[:id]).destroy
-		end
+		interest = Interest.find(params[:id]).destroy
+		binding.pry
+		render json: interest, status: 200
 	end
 
 	def employees_interests

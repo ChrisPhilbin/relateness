@@ -1,3 +1,5 @@
+import { warning } from "../helpers/notifications"
+
 export const GET_INTERESTS                         = 'GET_INTERESTS'
 export const GET_EMPLOYEES_INTERESTS_SUCCESS       = 'GET_EMPLOYEES_INTERESTS_SUCCESS'
 export const GET_INTERESTS_SUCCESS                 = 'GET_INTERESTS_SUCCESS'
@@ -123,6 +125,11 @@ export function deleteInterest(interest, csrf) {
 		}
 		return (
 			fetch('/v1/interests/' + id, deleted)
+				.then ( response => {
+					if (response.status === 200) {
+						warning('Interest removed')
+					}
+				})
 				.then (dispatch(deleteInterestSuccess(id)))
 		)
 	}
