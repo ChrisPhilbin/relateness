@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 import Button from 'react-bootstrap/Button'
+import Table from 'react-bootstrap/Table'
 
 import {fetchAllInterests} from '../actions/interestsActions'
 import {deleteInterest} from '../actions/interestsActions'
@@ -37,18 +38,27 @@ export const ShowAllInterests = () => {
 		return(
 			<div>
                 <NewInterestForm interests={interests} />
-				{ JSON.stringify(interests) != '[]' && 
-					<>
-					{interests.map( (interest) => (
-						<div key={interest.id}>
-							{interest.name}
-                            <Button onClick={ () => {dispatch(deleteInterest(interest, csrf))} }>
-                                Remove
-                            </Button>
-						</div>
-					))}
-					</>
-				}
+				<Table striped borderless>
+					{ JSON.stringify(interests) != '[]' && 
+						<>
+						{interests.map( (interest) => (
+							<tr>
+								<td>
+									<div key={interest.id}>
+										{interest.name}
+									</div>
+								</td>
+
+								<td>
+										<Button onClick={ () => {dispatch(deleteInterest(interest, csrf))} }>
+											&times;
+										</Button>
+								</td>
+							</tr>
+						))}
+						</>
+					}
+				</Table>
 			</div>
 		)
 	}
