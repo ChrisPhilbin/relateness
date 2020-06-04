@@ -36,6 +36,16 @@ class V1::EmployeesController < ApplicationController
 		render json: employee
 	end
 
+	def todays_birthdays
+		today = Employee.todays_birthdays
+		render json: today
+	end
+
+	def upcoming_birthdays
+		upcoming = Employee.upcoming_birthdays
+		render json: upcoming
+	end
+
 	private
 
 	def employee_params
