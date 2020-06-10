@@ -6,15 +6,12 @@ Rails.application.routes.draw do
 		post 'employees/:id/interests/new', to: 'interests#add_interest_to_employee'
 		delete 'employees/:employee_id/interests/:id', to: 'interests#delete_interest_from_employee'
 		get 'employees/:id/interests/newsfeed', to: 'interests#newsfeed'
-		get 'employees/todays_birthdays', to: 'employees#todays_birthdays'
-		get 'employees/upcoming_birthdays', to: 'employees#upcoming_birthdays'
+		# get 'employees/todays_birthdays', to: 'employees#todays_birthdays'
+		# get 'employees/upcoming_birthdays', to: 'employees#upcoming_birthdays'
+		get 'employees/birthdays', to: 'employees#birthdays'
 		resources :employees
 		resources :interests
 	end
-
-	# get '*page', to: 'static#index', constraints: ->(req) do
-	# 	!req.xhr? && req.format.html?
-	# end
 
 	root 'static#index'
 
