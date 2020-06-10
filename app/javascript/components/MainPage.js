@@ -1,5 +1,6 @@
 import React from 'react'
 import ShowAllEmployees from './employees/ShowAllEmployees'
+import ShowEmployeeUpcomingBirthdays from './employees/ShowEmployeeUpcomingBirthdays'
 
 const MainPage = () => (
 	<div class="container">
@@ -8,7 +9,7 @@ const MainPage = () => (
 				<ShowAllEmployees />
 			</div>
 			<div class="col-sm">
-				<strong>Upcoming birthdays...</strong>
+				<ShowEmployeeUpcomingBirthdays />
 			</div>
 			<div class="col-sm">
 				<strong>Odds & Ends</strong>
