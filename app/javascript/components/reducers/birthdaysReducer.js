@@ -6,13 +6,13 @@ export const initialState = {
     employees: []
 }
 
-export default function birthdayssReducer(state = initialState, action) {
+export default function birthdaysReducer(state = initialState, action) {
     switch (action.type) {
-      case actions.GET_BIRTHDAYS:
+      case actions.GET_UPCOMING_BIRTHDAYS:
         return { ...state, loading: true }
-      case actions.GET_BIRTHDAYS_SUCCESS: 
+      case actions.GET_UPCOMING_BIRTHDAYS_SUCCESS: 
         return {...state, loading: false, hasErrors: false, employees: action.payload}
-      case actions.GET_BIRTHDAYS_FAILURE:
+      case actions.GET_UPCOMING_BIRTHDAYS_FAILURE:
         return {...state, loading: false, hasErrors: true}
       default:
         return state
