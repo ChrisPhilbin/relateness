@@ -37,10 +37,10 @@ class V1::EmployeesController < ApplicationController
 	end
 
 	def birthdays
-		today = Employee.todays_birthdays
+		# today = Employee.todays_birthdays
 		upcoming = Employee.upcoming_birthdays
 		render json: {
-			:today => today,
+			# :today => today,
 			:upcoming => upcoming
 		}
 	end

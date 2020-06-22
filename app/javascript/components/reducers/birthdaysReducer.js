@@ -11,7 +11,7 @@ export default function birthdaysReducer(state = initialState, action) {
       case actions.GET_UPCOMING_BIRTHDAYS:
         return { ...state, loading: true }
       case actions.GET_UPCOMING_BIRTHDAYS_SUCCESS: 
-        return {...state, loading: false, hasErrors: false, employees: action.payload}
+        return {...state, employees: state.employees.concat(action.payload), loading: false, hasErrors: false}
       case actions.GET_UPCOMING_BIRTHDAYS_FAILURE:
         return {...state, loading: false, hasErrors: true}
       default:
