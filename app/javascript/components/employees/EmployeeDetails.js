@@ -5,6 +5,7 @@ import {fetchSingleEmployee} from '../actions/employeesActions'
 import {Link} from 'react-router-dom'
 
 import Alert from 'react-bootstrap/Alert'
+import Button from 'react-bootstrap/Button'
 
 export const EmployeeDetails = (props) => {
 
@@ -31,7 +32,7 @@ export const EmployeeDetails = (props) => {
 
 				<div className="row">
 					<div className="container-fluid ee-personal-info-header">
-						Personal Information
+						Personal Information <Link to={"/employees/" + employee_details.id + "/edit"} className="btn btn-primary">Edit</Link>
 					</div>
 				</div>
 

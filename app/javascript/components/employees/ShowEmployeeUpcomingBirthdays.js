@@ -5,17 +5,16 @@ import { fetchBirthdays } from '../actions/birthdayActions'
 const ShowEmployeeUpcomingBirthdays = () => {
 
     const dispatch = useDispatch()
-    
-    useEffect(() => {
-        dispatch(fetchBirthdays())
-    }, [])
 
     const employees = useSelector(state => state.birthdays.employees)
     const loading = useSelector(state => state.birthdays.loading)
     const hasErrors = useSelector(state => state.birthdays.hasErrors)
+     
+    useEffect(() => {
+        dispatch(fetchBirthdays())
+    }, [])
 
-    console.log(employees)
- 
+    //need to handle what happens when there are no upcoming birthdays to be displayed.
     const renderBirthdays = () => {
         if (loading) return <p>Loading upcoming birthdays...</p>
         if (hasErrors) return <p>Something went wrong getting birthday information...</p>
