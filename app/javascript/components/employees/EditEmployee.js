@@ -59,8 +59,29 @@ const EditEmployee = (props) => {
 
     const onLocalDateChange = (date) => setLocalDate(date)
 
-    debugger;
+    const onLocalPrimaryemailChange = (e) => setLocalPrimaryemail({
+        [localPrimaryemail]: e.currentTarget.value
+    })
 
+    const onLocalNicknameChange = (e) => setLocalNickname({
+        [localNickname]: e.currentTarget.value
+    })
+
+    const onLocalHomephoneChange = (e) => setLocalHomephone({
+        [localHomephone]: e.currentTarget.value
+    })
+
+    const onLocalWorkphoneChange = (e) => setLocalWorkphone({
+        [localWorkphone]: e.currentTarget.value
+    })
+
+    const onLocalEenumberChange = (e) => setLocalEenumber({
+        [localEenumber]: e.currentTarget.value
+    })
+
+    const onLocalPetsChange = (e) => setLocalPets({
+        [localPets]: e.currentTarget.value
+    })
 	return(
 
         <div className="container-fluid">
