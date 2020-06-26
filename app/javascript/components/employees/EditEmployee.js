@@ -92,7 +92,7 @@ const EditEmployee = (props) => {
                     <Form.Row>
                         <Form.Group controlId="formEmployeeNumber">
                             <Form.Label>Employee number</Form.Label>
-                            <Form.Control type="text" name="employeenumber" placeholder="####" value={localEmployeenumber} onChange={onLocalEmployeenumberChange} />
+                            <Form.Control type="text" name="employeenumber" placeholder="####" value={localEenumber} onChange={onLocalEenumberChange} />
                         </Form.Group>
 
                         <Form.Group controlId="formEmployeeWorkPhone">

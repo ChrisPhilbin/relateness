@@ -1,5 +1,7 @@
 class V1::EmployeesController < ApplicationController
 
+	validates :fullname, :date, :hiredate, :primaryemail, :nickname, :homephone, :workphone, :eenumber, :pets, presence: true
+
 	def index
 		if user_signed_in?
 			render json: current_user.employees
@@ -58,7 +60,8 @@ class V1::EmployeesController < ApplicationController
 	private
 
 	def employee_params
-		params.require(:employee).permit(:fullname, :id, :user_id, :updated_at, :created_at, :date, :hiredate)
+		params.require(:employee).permit(:fullname, :id, :user_id, :updated_at, :created_at, :date, :hiredate,
+		:primaryemail, :nickname, :homephone, :workphone, :eenumber, :pets)
 	end
 	
 end
