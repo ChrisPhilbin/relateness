@@ -19,14 +19,26 @@ const EditEmployee = (props) => {
     }, [])
 
     //get initial values from redux store
-    const fullname  = useSelector(state => state.employees.employee_details.fullname)
-    const hiredate  = useSelector(state => state.employees.employee_details.hiredate)
-    const date = useSelector(state => state.employees.employee_details.date)
+    const fullname     = useSelector(state => state.employees.employee_details.fullname)
+    const hiredate     = useSelector(state => state.employees.employee_details.hiredate)
+    const date         = useSelector(state => state.employees.employee_details.date)
+    const primaryemail = useSelector(state => state.employees.employee_details.primaryemail)
+    const nickname     = useSelector(state => state.employees.employee_details.nickname)
+    const homephone    = useSelector(state => state.employees.employee_details.homephone)
+    const workphone    = useSelector(state => state.employees.employee_details.workphone)
+    const eenumber     = useSelector(state => state.employees.employee_details.eenumber)
+    const pets         = useSelector(state => state.employees.employee_details.pets)
 
     //set local state to the values that were in the redux store/returned by the fetchSingleEmployee function
     let [localFullname, setLocalFullname]   = useState(fullname)
     let [localHiredate, setLocalHiredate]   = useState(hiredate)
     let [localDate, setLocalDate] = useState(date)
+    let [localPrimaryemail, setLocalPrimaryemail] = useState(primaryemail)
+    let [localNickname, setLocalNickname] = useState(nickname)
+    let [localHomephone, setLocalHomephone] = useState(homephone)
+    let [localWorkphone, setLocalWorkphone] = useState(workphone)
+    let [localEenumber, setLocalEenumber] = useState(eenumber)
+    let [localPets,setLocalPets] = useState(pets)
 
     const onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
 		e.preventDefault()
