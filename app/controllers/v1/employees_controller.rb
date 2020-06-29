@@ -1,6 +1,6 @@
 class V1::EmployeesController < ApplicationController
 
-	validates :fullname, :date, :hiredate, :primaryemail, :nickname, :homephone, :workphone, :eenumber, :pets, presence: true
+	# validates :fullname, :date, :hiredate, :primaryemail, :nickname, :homephone, :workphone, :eenumber, :pets, presence: true
 
 	def index
 		if user_signed_in?

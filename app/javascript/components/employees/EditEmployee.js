@@ -30,15 +30,15 @@ const EditEmployee = (props) => {
     const pets         = useSelector(state => state.employees.employee_details.pets)
 
     //set local state to the values that were in the redux store/returned by the fetchSingleEmployee function
-    let [localFullname, setLocalFullname]   = useState(fullname)
-    let [localHiredate, setLocalHiredate]   = useState(hiredate)
-    let [localDate, setLocalDate] = useState(date)
+    let [localFullname, setLocalFullname]         = useState(fullname)
+    let [localHiredate, setLocalHiredate]         = useState(hiredate)
+    let [localDate, setLocalDate]                 = useState(date)
     let [localPrimaryemail, setLocalPrimaryemail] = useState(primaryemail)
-    let [localNickname, setLocalNickname] = useState(nickname)
-    let [localHomephone, setLocalHomephone] = useState(homephone)
-    let [localWorkphone, setLocalWorkphone] = useState(workphone)
-    let [localEenumber, setLocalEenumber] = useState(eenumber)
-    let [localPets,setLocalPets] = useState(pets)
+    let [localNickname, setLocalNickname]         = useState(nickname)
+    let [localHomephone, setLocalHomephone]       = useState(homephone)
+    let [localWorkphone, setLocalWorkphone]       = useState(workphone)
+    let [localEenumber, setLocalEenumber]         = useState(eenumber)
+    let [localPets,setLocalPets]                  = useState(pets)
 
     const onSubmit = (e, csrf = document.querySelector('[name=csrf-token]').content) => {
 		e.preventDefault()
@@ -53,7 +53,7 @@ const EditEmployee = (props) => {
         [localFullname]: e.currentTarget.value
     })
 
-    const onLocalHireChange = (date) => setLocalHiredate({
+    const onLocalHiredateChange = (date) => setLocalHiredate({
         [localHiredate]: date
     })
 
@@ -125,7 +125,7 @@ const EditEmployee = (props) => {
                     <Form.Row>
                         <Form.Group controlId="formAnniversary">
                             <Form.Label>Work Anniversary</Form.Label>
-                            <Form.Control type="text" name="workanniversary" placeholder="11/20/2017" value={localWorkanniversary} onChange={onLocalWorkanniversaryChange} />
+                            <Form.Control type="text" name="workanniversary" placeholder="11/20/2017" value={localHiredate} onChange={onLocalHiredateChange} />
                         </Form.Group>
 
                         <Form.Group controlId="formEmployeePets">
@@ -134,15 +134,12 @@ const EditEmployee = (props) => {
                         </Form.Group>
                     </Form.Row>
 
-                    <Form.Group controlId="formEmployeeHiredate">
-                        <Form.Label>Hire date: </Form.Label>
-                        <DatePicker selected={parseISO(localHiredate)} onChange={onLocalHireChange} />
-                    </Form.Group>
-
-                    <Form.Group controlId="formEmployeeBirthday">
-                        <Form.Label>Birthday: </Form.Label>
-                        <DatePicker selected={parseISO(localDate)} onChange={onLocalDateChange} />
-                    </Form.Group>
+                    <Form.Row>
+                        <Form.Group controlId="formEmployeeBirthday">
+                            <Form.Label>Birthday: </Form.Label>
+                            <DatePicker selected={parseISO(localDate)} onChange={onLocalDateChange} />
+                        </Form.Group>
+                    </Form.Row>
 
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                         Update details
