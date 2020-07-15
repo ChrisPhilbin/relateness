@@ -47,3 +47,20 @@
 .ee-personal-info-intro {
     padding: 0px;
 }
+
+.show-employees {
+    border-radius: 25px;
+    background: #ecf2f9;
+    padding: 20px;
+}
+
+.show-birthdays {
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.show-odds-ends {
+    border-radius: 25px;
+    background: #ecf2f9;
+    padding: 20px;
+}

@@ -5,13 +5,13 @@ import ShowEmployeeUpcomingBirthdays from './employees/ShowEmployeeUpcomingBirth
 const MainPage = () => (
 	<div className="container">
 		<div className="row">
-			<div className="col-sm">
+			<div className="col-sm show-employees">
 				<ShowAllEmployees />
 			</div>
-			<div className="col-sm">
+			<div className="col-sm show-birthdays">
 				<ShowEmployeeUpcomingBirthdays />
 			</div>
-			<div className="col-sm">
+			<div className="col-sm show-odds-ends">
 				<strong>Odds & Ends</strong>
 			</div>
 		</div>
