@@ -4,6 +4,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import {fetchSingleEmployee} from '../actions/employeesActions'
 import {Link} from 'react-router-dom'
 
+// import DisplayInterestsNewsItems from '../interests/DisplayInterestsNewsItems'
+
 import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 

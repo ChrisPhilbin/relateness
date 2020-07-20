@@ -85,69 +85,69 @@ const EditEmployee = (props) => {
 	return(
 
         <div className="container-fluid">
-                <Form>
-                    <Form.Row>
-                        <Form.Group controlId="formEmployeeFullname">
-                            <Form.Label>Employee's fullname</Form.Label>
-                            <Form.Control type="text" name="fullname" placeholder="Samantha Smith" autoFocus value={localFullname} onChange={onLocalFullnameChange} />
-                        </Form.Group>
+            <Form>
+                <Form.Row>
+                    <Form.Group controlId="formEmployeeFullname">
+                        <Form.Label>Employee's fullname</Form.Label>
+                        <Form.Control type="text" name="fullname" placeholder="Samantha Smith" autoFocus value={localFullname} onChange={onLocalFullnameChange} />
+                    </Form.Group>
 
-                        <Form.Group controlId="formEmployeePrimaryEmail">
-                            <Form.label>Primary Email</Form.label>
-                            <Form.Control type="email" name="primaryemail" placeholder="email@email.com" value={localPrimaryemail} onChange={onLocalPrimaryemailChange} />
-                        </Form.Group>
-                    </Form.Row>
+                    <Form.Group controlId="formEmployeePrimaryEmail">
+                        <Form.Label>Primary Email</Form.Label>
+                        <Form.Control type="email" name="primaryemail" placeholder="email@email.com" value={localPrimaryemail} onChange={onLocalPrimaryemailChange} />
+                    </Form.Group>
+                </Form.Row>
 
-                    <Form.Row>
-                        <Form.Group controlId="formEmployeeNickname">
-                            <Form.Label>Nickname</Form.Label>
-                            <Form.Control type="text" name="nickname" placeholder="Sam" value={localNickname} onChange={onLocalNicknameChange} />
-                        </Form.Group>
+                <Form.Row>
+                    <Form.Group controlId="formEmployeeNickname">
+                        <Form.Label>Nickname</Form.Label>
+                        <Form.Control type="text" name="nickname" placeholder="Sam" value={localNickname} onChange={onLocalNicknameChange} />
+                    </Form.Group>
 
-                        <Form.Group controlId="formEmployeeHomePhone">
-                            <Form.Label>Primary home phone</Form.Label>
-                            <Form.Control type="text" name="homephone" placeholder="(123)-456-7890" value={localHomephone} onChange={onLocalHomephoneChange} />
-                        </Form.Group>
-                    </Form.Row>
+                    <Form.Group controlId="formEmployeeHomePhone">
+                        <Form.Label>Primary home phone</Form.Label>
+                        <Form.Control type="text" name="homephone" placeholder="(123)-456-7890" value={localHomephone} onChange={onLocalHomephoneChange} />
+                    </Form.Group>
+                </Form.Row>
 
-                    <Form.Row>
-                        <Form.Group controlId="formEmployeeNumber">
-                            <Form.Label>Employee number</Form.Label>
-                            <Form.Control type="text" name="employeenumber" placeholder="####" value={localEenumber} onChange={onLocalEenumberChange} />
-                        </Form.Group>
+                <Form.Row>
+                    <Form.Group controlId="formEmployeeNumber">
+                        <Form.Label>Employee number</Form.Label>
+                        <Form.Control type="text" name="employeenumber" placeholder="####" value={localEenumber} onChange={onLocalEenumberChange} />
+                    </Form.Group>
 
-                        <Form.Group controlId="formEmployeeWorkPhone">
-                            <Form.Label>Primary work phone</Form.Label>
-                            <Form.Control type="text" name="workphone" placeholder="(123)-456-7890" value={localWorkphone} onChange={onLocalWorkphoneChange} />
-                        </Form.Group>
-                    </Form.Row>
+                    <Form.Group controlId="formEmployeeWorkPhone">
+                        <Form.Label>Primary work phone</Form.Label>
+                        <Form.Control type="text" name="workphone" placeholder="(123)-456-7890" value={localWorkphone} onChange={onLocalWorkphoneChange} />
+                    </Form.Group>
+                </Form.Row>
 
-                    <Form.Row>
-                        <Form.Group controlId="formAnniversary">
-                            <Form.Label>Work Anniversary</Form.Label>
-                            <Form.Control type="text" name="workanniversary" placeholder="11/20/2017" value={localHiredate} onChange={onLocalHiredateChange} />
-                        </Form.Group>
+                <Form.Row>
+                    <Form.Group controlId="formAnniversary">
+                        <Form.Label>Work Anniversary</Form.Label>
+                        <Form.Control type="text" name="workanniversary" placeholder="11/20/2017" value={localHiredate} onChange={onLocalHiredateChange} />
+                    </Form.Group>
 
-                        <Form.Group controlId="formEmployeePets">
-                            <Form.Label>Pets</Form.Label>
-                            <Form.Control type="text" name="Pets" placeholder="Shelly, Abby, Delta" value={localPets} onChange={onLocalPetsChange} />
-                        </Form.Group>
-                    </Form.Row>
+                    <Form.Group controlId="formEmployeePets">
+                        <Form.Label>Pets</Form.Label>
+                        <Form.Control type="text" name="Pets" placeholder="Shelly, Abby, Delta" value={localPets} onChange={onLocalPetsChange} />
+                    </Form.Group>
+                </Form.Row>
 
-                    <Form.Row>
-                        <Form.Group controlId="formEmployeeBirthday">
-                            <Form.Label>Birthday: </Form.Label>
-                            <DatePicker selected={parseISO(localDate)} onChange={onLocalDateChange} />
-                        </Form.Group>
-                    </Form.Row>
+                <Form.Row>
+                    <Form.Group controlId="formEmployeeBirthday">
+                        <Form.Label>Birthday: </Form.Label>
+                        <DatePicker selected={parseISO(localDate)} onChange={onLocalDateChange} />
+                    </Form.Group>
+                </Form.Row>
 
-                    <Button variant="primary" type="submit" onClick={onSubmit}>
-                        Update details
-                    </Button>
-                </Form>
+                <Button variant="primary" type="submit" onClick={onSubmit}>
+                    Update details
+                </Button>
+            </Form>
         </div>
 
 	)
 
 }
-export default connect(null, {fetchSingleEmployee, updateEmployee})(EditEmployee)
+export default connect(null, {updateEmployee})(EditEmployee)
