@@ -18,7 +18,7 @@ const EditEmployee = (props) => {
         dispatch(fetchSingleEmployee(props.id))
     }, [])
 
-    //get initial values from redux store
+    //get initial values from redux store and assign to local state
     const fullname     = useSelector(state => state.employees.employee_details.fullname)
     const hiredate     = useSelector(state => state.employees.employee_details.hiredate)
     const date         = useSelector(state => state.employees.employee_details.date)
@@ -49,39 +49,24 @@ const EditEmployee = (props) => {
 		props.history.push('/')
     }
 
-    const onLocalFullnameChange = (e) => setLocalFullname({
-        [localFullname]: e.currentTarget.value
-    })
+    const onLocalFullnameChange = (e) => setLocalFullname(e.target.value)
 
-    const onLocalHiredateChange = (date) => setLocalHiredate({
-        [localHiredate]: date
-    })
+    const onLocalHiredateChange = (date) => setLocalHiredate(date)
 
-    const onLocalDateChange = (date) => setLocalDate(date)
+    const onLocalDateChange = (date) => console.log(date)
 
-    const onLocalPrimaryemailChange = (e) => setLocalPrimaryemail({
-        [localPrimaryemail]: e.currentTarget.value
-    })
+    const onLocalPrimaryemailChange = (e) => setLocalPrimaryemail(e.target.value)
 
-    const onLocalNicknameChange = (e) => setLocalNickname({
-        [localNickname]: e.currentTarget.value
-    })
+    const onLocalNicknameChange = (e) => setLocalNickname(e.target.value)
 
-    const onLocalHomephoneChange = (e) => setLocalHomephone({
-        [localHomephone]: e.currentTarget.value
-    })
+    const onLocalHomephoneChange = (e) => setLocalHomephone(e.target.value)
 
-    const onLocalWorkphoneChange = (e) => setLocalWorkphone({
-        [localWorkphone]: e.currentTarget.value
-    })
+    const onLocalWorkphoneChange = (e) => setLocalWorkphone(e.target.value)
 
-    const onLocalEenumberChange = (e) => setLocalEenumber({
-        [localEenumber]: e.currentTarget.value
-    })
+    const onLocalEenumberChange = (e) => setLocalEenumber(e.target.value)
 
-    const onLocalPetsChange = (e) => setLocalPets({
-        [localPets]: e.currentTarget.value
-    })
+    const onLocalPetsChange = (e) => setLocalPets(e.target.value)
+
 	return(
 
         <div className="container-fluid">
